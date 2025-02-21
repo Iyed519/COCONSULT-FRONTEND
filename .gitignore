@@ -1,0 +1,14 @@
+# Ignore all files by default
+*
+
+# Except for specific files and directories
+!/.gitignore
+!/src/
+!/angular.json
+!/package.json
+!/package-lock.json
+!/tsconfig*
+
+# Allow everything inside src
+/src/*
+!/src/**/*
