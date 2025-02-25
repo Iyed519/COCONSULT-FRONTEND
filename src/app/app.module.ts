@@ -30,7 +30,7 @@ import { HorizontalComponent } from './components/backoffice/sidebarstyle/horizo
 import {ex} from "@fullcalendar/core/internal-common";
 import {KeycloakService} from "../services/keycloak/keycloak.service";
 import {HttpTokenInterceptor} from "../services/interceptor/http-token.interceptor";
-import { LoginComponent } from './components/frontoffice/login/login.component';
+// import { LoginComponent } from './components/frontoffice/singin/login.component';
 
 export  function kcFactory(kcService: KeycloakService){
   return () =>  kcService.init();
@@ -45,7 +45,7 @@ export  function kcFactory(kcService: KeycloakService){
     HeaderBackComponent,
     AllTemplateBackComponent,
     HorizontalComponent,
-    LoginComponent
+    // LoginComponent
   ],
   imports: [
     RouterModule.forRoot([]),

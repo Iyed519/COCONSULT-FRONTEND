@@ -14,8 +14,8 @@ export class KeycloakService {
     if (!this._keycloak) {
       this._keycloak = new Keycloak({
         url: 'http://localhost:9090',
-        realm: 'testing-Realm',
-        clientId: 'project'
+        realm: 'coconsult-realm',
+        clientId: 'angular-project'
       });
     }
     return this._keycloak;
@@ -39,6 +39,7 @@ export class KeycloakService {
       console.log('user authenticated... ');
     }
   }
+
   login(){
      return this.keycloak?.login();
   }
