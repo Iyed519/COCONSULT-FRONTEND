@@ -1,32 +1,47 @@
 import { Injectable } from '@angular/core';
-import {JwtHelperService} from "@auth0/angular-jwt";
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
+
   set token(token: string) {
     localStorage.setItem('token', token);
   }
-  getToken(){
-    return localStorage.getItem('token');
+
+  get token() {
+    return localStorage.getItem('token') as string;
   }
-  isTokenNotValid(){
-    return !this.isTokenValid;
-  }
-  isTokenValid(){
-    const token = this.getToken();
+
+  isTokenValid() {
+    const token = this.token;
     if (!token) {
       return false;
     }
-    //decode a token
-    const jwthelper = new JwtHelperService();
-    //expiring date
-    const isTokenExpired = jwthelper.isTokenExpired(token);
+    // decode the token
+    const jwtHelper = new JwtHelperService();
+    // check expiry date
+    const isTokenExpired = jwtHelper.isTokenExpired(token);
     if (isTokenExpired) {
       localStorage.clear();
       return false;
     }
     return true;
+  }
+
+  isTokenNotValid() {
+    return !this.isTokenValid();
+  }
+
+  get userRoles(): string[] {
+    const token = this.token;
+    if (token) {
+      const jwtHelper = new JwtHelperService();
+      const decodedToken = jwtHelper.decodeToken(token);
+      console.log(decodedToken.authorities);
+      return decodedToken.authorities;
+    }
+    return [];
   }
 }
