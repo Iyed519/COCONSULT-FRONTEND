@@ -1,0 +1,31 @@
+/* Style pour le formulaire d'ajout de projet */
+.container {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-control-xxs {
+    height: calc(1.2em + 0.3rem + 2px);
+    padding: 0.1rem 0.3rem;
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+  
+  .form-select-xxs {
+    height: calc(1.2em + 0.3rem + 2px);
+    padding: 0.1rem 0.3rem;
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+  
+  .btn-xxs {
+    padding: 0.05rem 0.2rem;
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+  
+  .xsmall {
+    font-size: 0.6rem;
+  }

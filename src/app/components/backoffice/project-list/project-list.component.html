@@ -1,0 +1,54 @@
+<app-header-back></app-header-back>
+<div class="container-fluid iq-container">
+  <div class="row">
+      <div class="col-md-12">
+        
+          <div class="flex-wrap d-flex justify-content-between align-items-center">
+  <h2>Liste des projets</h2>
+ 
+<div class="table-container">
+  <button routerLink="/add-project" class="btn btn-primary mb-3">Ajouter un projet</button>
+  <table class="table">  
+    <thead>
+      <tr>
+        <th>Nom du Projet</th>
+        <th>Description</th>
+        <th>Budget</th>
+        <th>Date d'entrée</th>
+        <th>Date de sortie</th>
+        <th>Statut</th>
+        <th>Tâches associées</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects; let i = index">
+        <td>{{ project.projectName }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.budget }} TND</td>
+        <td>{{ project.startDate | date:'dd/MM/yyyy' }}</td>
+        <td>{{ project.endDate | date:'dd/MM/yyyy' }}</td>
+        <td>{{ project.status }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let task of project.associatedTasks">
+              {{ task.taskDescription || task }}
+              <button (click)="editTask(project.idProject, task)" class="btn btn-warning btn-sm">Modifier</button>
+              <button (click)="deleteTask(project.idProject, task.id)" class="btn btn-danger btn-sm">Supprimer</button>
+            </li>
+          </ul>
+          <button [routerLink]="['/add-task']" class="btn btn-success btn-sm">Detaile d'une tâche</button>
+        </td>
+        <td>
+          <!-- Bouton Modifier pour chaque projet -->
+          <button [routerLink]="['/edit-project', project.idProject]" class="btn btn-warning btn-sm">Modifier</button>
+          <button (click)="deleteProject(project.idProject)" class="btn btn-danger btn-sm">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+  </div>
+</div>
+</div>

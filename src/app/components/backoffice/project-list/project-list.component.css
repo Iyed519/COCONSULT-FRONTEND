@@ -1,0 +1,20 @@
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Pour le défilement fluide sur iOS */
+}
+/* project-list.component.css */
+.form-container {
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+button {
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1); /* Agrandir légèrement le bouton */
+}

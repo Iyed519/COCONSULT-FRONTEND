@@ -1,0 +1,118 @@
+<app-header-back></app-header-back>
+<div class="container-fluid iq-container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 offset-md-1">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title mb-4 text-center" style="font-weight: bold;">Modifier le projet</h2>
+          <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              
+              <!-- Nom du projet -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="projectName" class="form-label">Nom du projet</label>
+                  <input type="text" id="projectName" formControlName="projectName" class="form-control form-control-sm" required>
+                  <div *ngIf="projectForm.get('projectName')?.invalid && (projectForm.get('projectName')?.dirty || projectForm.get('projectName')?.touched)" class="text-danger small">
+                    <div *ngIf="projectForm.get('projectName')?.errors?.['required']">Le nom du projet est obligatoire</div>
+                    <div *ngIf="projectForm.get('projectName')?.errors?.['minlength']">Le nom du projet doit comporter au moins 3 caractères</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="description" class="form-label">Description</label>
+                  <input type="text" id="description" formControlName="description" class="form-control form-control-sm" required>
+                  <div *ngIf="projectForm.get('description')?.invalid && (projectForm.get('description')?.dirty || projectForm.get('description')?.touched)" class="text-danger small">
+                    <div *ngIf="projectForm.get('description')?.errors?.['required']">La description est obligatoire</div>
+                    <div *ngIf="projectForm.get('description')?.errors?.['minlength']">La description doit comporter au moins 10 caractères</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Budget -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="budget" class="form-label">Budget</label>
+                  <input type="number" id="budget" formControlName="budget" class="form-control form-control-sm" required min="1000">
+                  <div *ngIf="projectForm.get('budget')?.invalid && (projectForm.get('budget')?.dirty || projectForm.get('budget')?.touched)" class="text-danger small">
+                    <div *ngIf="projectForm.get('budget')?.errors?.['required']">Le budget est requis.</div>
+                    <div *ngIf="projectForm.get('budget')?.errors?.['min']">Le budget doit être (minimum 1000 TND)</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date de début -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="startDate" class="form-label">Date de début</label>
+                  <input type="date" id="startDate" formControlName="startDate" class="form-control form-control-sm" required>
+                  <div *ngIf="projectForm.get('startDate')?.invalid && (projectForm.get('startDate')?.dirty || projectForm.get('startDate')?.touched)" class="text-danger small">
+                    <div *ngIf="projectForm.get('startDate')?.errors?.['required']">La date de début est requise.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Statut -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="status" class="form-label">Statut</label>
+                  <select id="status" formControlName="status" class="form-select form-select-sm" required>
+                    <option value="planned">Plannifié</option>
+                    <option value="in-progress">En cours</option>
+                    <option value="completed">Terminé</option>
+                  </select>
+                  <div *ngIf="projectForm.get('status')?.invalid && (projectForm.get('status')?.dirty || projectForm.get('status')?.touched)" class="text-danger small">
+                    <div *ngIf="projectForm.get('status')?.errors?.['required']">Le statut est requis.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date de fin -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="endDate" class="form-label">Date de fin</label>
+                  <input type="date" id="endDate" formControlName="endDate" class="form-control form-control-sm" required>
+                  <div *ngIf="projectForm.get('endDate')?.invalid && (projectForm.get('endDate')?.dirty || projectForm.get('endDate')?.touched)" class="text-danger small">
+                    <div *ngIf="projectForm.get('endDate')?.errors?.['required']">La date de fin est requise.</div>
+                    <div *ngIf="projectForm.get('endDate')?.errors?.['endDateInvalid']">La date de fin doit être supérieure à la date de début</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tâches associées -->
+              <div class="col-md-12 text-center">
+                <div class="form-group">
+                  <label for="tasks" class="form-label font-weight-bold" style="font-weight: bold;">Modifier la tâche</label>
+                  <select id="tasks" class="form-select form-select-sm" (change)="addTask($event)">
+                    <option *ngFor="let task of availableTasks" [value]="task.id">{{ task.name }}</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Liste des tâches sélectionnées -->
+              <div class="col-md-12 mt-3">
+                <div class="selected-tasks">
+                  <h5 class="mb-2">Tâches sélectionnées :</h5>
+                  <ul class="list-group list-group-flush">
+                    <li *ngFor="let task of selectedTasks" class="list-group-item d-flex justify-content-between align-items-center">
+                      {{ task.name }}
+                      <button type="button" (click)="removeTask(task.id)" class="btn btn-danger btn-sm">X</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Bouton de soumission -->
+              <div class="col-12 mt-3">
+                <button type="submit" class="btn btn-primary w-100" [disabled]="!projectForm.valid">Modifier le projet</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
