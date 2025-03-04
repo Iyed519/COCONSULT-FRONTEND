@@ -30,7 +30,13 @@
       
       <!-- RTL Css -->
       <link rel="stylesheet" href="/assets/backoffice/assets/css/rtl.min.css">
-      
+      <!-- Ajouter jQuery en premier -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Ajouter DataTables -->
+      <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
       
   </head>
   <body class="  ">
@@ -507,281 +513,6 @@
                             <span class="item-name">Admin</span>
                         </a>
                     </li>
-                    <li><hr class="hr-horizontal"></li>
-                    <li class="nav-item static-item">
-                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                            <span class="default-icon">Elements</span>
-                            <span class="mini-icon">-</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://templates.iqonic.design/hope-ui/html/dist/#accordion">
-                            <i class="icon">
-                                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                
-                               <path opacity="0.4" d="M2 11.0786C2.05 13.4166 2.19 17.4156 2.21 17.8566C2.281 18.7996 2.642 19.7526 3.204 20.4246C3.986 21.3676 4.949 21.7886 6.292 21.7886C8.148 21.7986 10.194 21.7986 12.181 21.7986C14.176 21.7986 16.112 21.7986 17.747 21.7886C19.071 21.7886 20.064 21.3566 20.836 20.4246C21.398 19.7526 21.759 18.7896 21.81 17.8566C21.83 17.4856 21.93 13.1446 21.99 11.0786H2Z" fill="currentColor"></path>                                <path d="M11.2451 15.3843V16.6783C11.2451 17.0923 11.5811 17.4283 11.9951 17.4283C12.4091 17.4283 12.7451 17.0923 12.7451 16.6783V15.3843C12.7451 14.9703 12.4091 14.6343 11.9951 14.6343C11.5811 14.6343 11.2451 14.9703 11.2451 15.3843Z" fill="currentColor"></path>                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.211 14.5565C10.111 14.9195 9.762 15.1515 9.384 15.1015C6.833 14.7455 4.395 13.8405 2.337 12.4815C2.126 12.3435 2 12.1075 2 11.8555V8.38949C2 6.28949 3.712 4.58149 5.817 4.58149H7.784C7.972 3.12949 9.202 2.00049 10.704 2.00049H13.286C14.787 2.00049 16.018 3.12949 16.206 4.58149H18.183C20.282 4.58149 21.99 6.28949 21.99 8.38949V11.8555C21.99 12.1075 21.863 12.3425 21.654 12.4815C19.592 13.8465 17.144 14.7555 14.576 15.1105C14.541 15.1155 14.507 15.1175 14.473 15.1175C14.134 15.1175 13.831 14.8885 13.746 14.5525C13.544 13.7565 12.821 13.1995 11.99 13.1995C11.148 13.1995 10.433 13.7445 10.211 14.5565ZM13.286 3.50049H10.704C10.031 3.50049 9.469 3.96049 9.301 4.58149H14.688C14.52 3.96049 13.958 3.50049 13.286 3.50049Z" fill="currentColor">
-                               </path></svg> 
-                            </i>
-                            <span class="item-name">Components</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-widget" role="button" aria-expanded="false" aria-controls="sidebar-widget">
-                            <i class="icon">
-                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.4" d="M21.25 13.4764C20.429 13.4764 19.761 12.8145 19.761 12.001C19.761 11.1865 20.429 10.5246 21.25 10.5246C21.449 10.5246 21.64 10.4463 21.78 10.3076C21.921 10.1679 22 9.97864 22 9.78146L21.999 7.10415C21.999 4.84102 20.14 3 17.856 3H6.144C3.86 3 2.001 4.84102 2.001 7.10415L2 9.86766C2 10.0648 2.079 10.2541 2.22 10.3938C2.36 10.5325 2.551 10.6108 2.75 10.6108C3.599 10.6108 4.239 11.2083 4.239 12.001C4.239 12.8145 3.571 13.4764 2.75 13.4764C2.336 13.4764 2 13.8093 2 14.2195V16.8949C2 19.158 3.858 21 6.143 21H17.857C20.142 21 22 19.158 22 16.8949V14.2195C22 13.8093 21.664 13.4764 21.25 13.4764Z" fill="currentColor"></path>
-                                    <path d="M15.4303 11.5887L14.2513 12.7367L14.5303 14.3597C14.5783 14.6407 14.4653 14.9177 14.2343 15.0837C14.0053 15.2517 13.7063 15.2727 13.4543 15.1387L11.9993 14.3737L10.5413 15.1397C10.4333 15.1967 10.3153 15.2267 10.1983 15.2267C10.0453 15.2267 9.89434 15.1787 9.76434 15.0847C9.53434 14.9177 9.42134 14.6407 9.46934 14.3597L9.74734 12.7367L8.56834 11.5887C8.36434 11.3907 8.29334 11.0997 8.38134 10.8287C8.47034 10.5587 8.70034 10.3667 8.98134 10.3267L10.6073 10.0897L11.3363 8.61268C11.4633 8.35868 11.7173 8.20068 11.9993 8.20068H12.0013C12.2843 8.20168 12.5383 8.35968 12.6633 8.61368L13.3923 10.0897L15.0213 10.3277C15.2993 10.3667 15.5293 10.5587 15.6173 10.8287C15.7063 11.0997 15.6353 11.3907 15.4303 11.5887Z" fill="currentColor"></path>
-                                </svg>
-                            </i>
-                            <span class="item-name">widget</span>
-                            <i class="right-icon">
-                                <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </i>
-                        </a>
-                        <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/widget/widgetbasic.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> W </i>
-                                    <span class="item-name">Widget Basic</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/widget/widgetchart.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> W </i>
-                                    <span class="item-name">Widget Chart</span>
-                                </a>
-                            </li>
-                             <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/widget/widgetcard.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> W </i>
-                                    <span class="item-name">Widget Card</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-maps" role="button" aria-expanded="false" aria-controls="sidebar-maps">
-                            <i class="icon">
-                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.53162 2.93677C10.7165 1.66727 13.402 1.68946 15.5664 2.99489C17.7095 4.32691 19.012 6.70418 18.9998 9.26144C18.95 11.8019 17.5533 14.19 15.8075 16.0361C14.7998 17.1064 13.6726 18.0528 12.4488 18.856C12.3228 18.9289 12.1848 18.9777 12.0415 19C11.9036 18.9941 11.7693 18.9534 11.6508 18.8814C9.78243 17.6746 8.14334 16.134 6.81233 14.334C5.69859 12.8314 5.06584 11.016 5 9.13442C4.99856 6.57225 6.34677 4.20627 8.53162 2.93677ZM9.79416 10.1948C10.1617 11.1008 11.0292 11.6918 11.9916 11.6918C12.6221 11.6964 13.2282 11.4438 13.6748 10.9905C14.1214 10.5371 14.3715 9.92064 14.3692 9.27838C14.3726 8.29804 13.7955 7.41231 12.9073 7.03477C12.0191 6.65723 10.995 6.86235 10.3133 7.55435C9.63159 8.24635 9.42664 9.28872 9.79416 10.1948Z" fill="currentColor"></path>
-                                    <ellipse opacity="0.4" cx="12" cy="21" rx="5" ry="1" fill="currentColor"></ellipse>
-                                </svg>
-                            </i>
-                            <span class="item-name">Maps</span>
-                            <i class="right-icon">
-                                <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </i>
-                        </a>
-                        <ul class="sub-nav collapse" id="sidebar-maps" data-bs-parent="#sidebar-menu">
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/maps/google.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> G </i>
-                                    <span class="item-name">Google</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/maps/vector.html">
-                                   <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> V </i>
-                                    <span class="item-name">Vector</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-form" role="button" aria-expanded="false" aria-controls="sidebar-form">
-                            <i class="icon">
-                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.4" d="M16.191 2H7.81C4.77 2 3 3.78 3 6.83V17.16C3 20.26 4.77 22 7.81 22H16.191C19.28 22 21 20.26 21 17.16V6.83C21 3.78 19.28 2 16.191 2Z" fill="currentColor"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.07996 6.6499V6.6599C7.64896 6.6599 7.29996 7.0099 7.29996 7.4399C7.29996 7.8699 7.64896 8.2199 8.07996 8.2199H11.069C11.5 8.2199 11.85 7.8699 11.85 7.4289C11.85 6.9999 11.5 6.6499 11.069 6.6499H8.07996ZM15.92 12.7399H8.07996C7.64896 12.7399 7.29996 12.3899 7.29996 11.9599C7.29996 11.5299 7.64896 11.1789 8.07996 11.1789H15.92C16.35 11.1789 16.7 11.5299 16.7 11.9599C16.7 12.3899 16.35 12.7399 15.92 12.7399ZM15.92 17.3099H8.07996C7.77996 17.3499 7.48996 17.1999 7.32996 16.9499C7.16996 16.6899 7.16996 16.3599 7.32996 16.1099C7.48996 15.8499 7.77996 15.7099 8.07996 15.7399H15.92C16.319 15.7799 16.62 16.1199 16.62 16.5299C16.62 16.9289 16.319 17.2699 15.92 17.3099Z" fill="currentColor"></path>
-                                </svg>
-                            </i>
-                            <span class="item-name">Form</span>
-                            <i class="right-icon">
-                                <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </i>
-                        </a>
-                        <ul class="sub-nav collapse" id="sidebar-form" data-bs-parent="#sidebar-menu">
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/form/form-element.html">
-                                   <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                   <i class="sidenav-mini-icon"> E </i>
-                                   <span class="item-name">Elements</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/form/form-wizard.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> W </i>
-                                    <span class="item-name">Wizard</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/form/form-validation.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> V </i>
-                                    <span class="item-name">Validation</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-table" role="button" aria-expanded="false" aria-controls="sidebar-table">
-                            <i class="icon">
-                                <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20"  viewBox="0 0 24 24" fill="none">
-                                    <path d="M2 5C2 4.44772 2.44772 4 3 4H8.66667H21C21.5523 4 22 4.44772 22 5V8H15.3333H8.66667H2V5Z" fill="currentColor" stroke="currentColor"/>
-                                    <path d="M6 8H2V11M6 8V20M6 8H14M6 20H3C2.44772 20 2 19.5523 2 19V11M6 20H14M14 8H22V11M14 8V20M14 20H21C21.5523 20 22 19.5523 22 19V11M2 11H22M2 14H22M2 17H22M10 8V20M18 8V20" stroke="currentColor"/>
-                                </svg>
-                            </i>
-                            <span class="item-name">Table</span>
-                            <i class="right-icon">
-                                <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </i>
-                        </a>
-                        <ul class="sub-nav collapse" id="sidebar-table" data-bs-parent="#sidebar-menu">
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/table/bootstrap-table.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> B </i>
-                                    <span class="item-name">Bootstrap Table</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/table/table-data.html">
-                                   <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                   <i class="sidenav-mini-icon"> D </i>
-                                   <span class="item-name">Datatable</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item mb-5">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-icons" role="button" aria-expanded="false" aria-controls="sidebar-icons">
-                            <i class="icon">
-                                <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 10.5378C8 9.43327 8.89543 8.53784 10 8.53784H11.3333C12.4379 8.53784 13.3333 9.43327 13.3333 10.5378V19.8285C13.3333 20.9331 14.2288 21.8285 15.3333 21.8285H16C16 21.8285 12.7624 23.323 10.6667 22.9361C10.1372 22.8384 9.52234 22.5913 9.01654 22.3553C8.37357 22.0553 8 21.3927 8 20.6832V10.5378Z" fill="currentColor"/>
-                                    <rect opacity="0.4" x="8" y="1" width="5" height="5" rx="2.5" fill="currentColor"/>
-                                </svg>
-                            </i>
-                            <span class="item-name">Icons</span>
-                            <i class="right-icon">
-                                <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </i>
-                        </a>
-                        <ul class="sub-nav collapse" id="sidebar-icons" data-bs-parent="#sidebar-menu">
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/icons/solid.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> S </i>
-                                     <span class="item-name">Solid</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/icons/outline.html">
-                                    <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> O </i>
-                                     <span class="item-name">Outlined</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="../dashboard/icons/dual-tone.html">
-                                   <i class="icon">
-                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                                            <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> D </i>
-                                     <span class="item-name">Dual Tone</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
                 <!-- Sidebar Menu End -->        </div>
         </div>
@@ -791,7 +522,7 @@
         <!--Nav Start-->
         <nav class="nav navbar navbar-expand-xl navbar-light iq-navbar">
           <div class="container-fluid navbar-inner">
-            <a href="/app/components/backoffice/all-template-back.component.html" class="navbar-brand">
+            <a href="dash" class="navbar-brand">
                 
                 <!--Logo start-->
                 <div class="logo-main">
@@ -890,7 +621,7 @@
                         <div class="p-0 card-body">
                             <a href="#" class="iq-sub-card">
                               <div class="d-flex align-items-center">
-                                  <!-- <img class="p-1 avatar-40 rounded-pill bg-primary-subtle" src="assets/backoffice/assets/images/shapes/01.png" alt=""> -->
+                                  <img class="p-1 avatar-40 rounded-pill bg-primary-subtle" src="assets/backoffice/assets/images/shapes/01.png" alt="">
                                   <div class="ms-3 w-100">
                                     <h6 class="mb-0 text-start iq-text">Emma Watson Bni</h6>
                                     <div class="d-flex justify-content-between align-items-center">
@@ -961,7 +692,7 @@
                             <a href="#" class="iq-sub-card">
                               <div class="d-flex align-items-center">
                                   <div class="">
-                                    <!-- <img class="p-1 avatar-40 rounded-pill bg-primary-subtle" src="assets/backoffice/assets/images/shapes/01.png" alt=""> -->
+                                    <img class="p-1 avatar-40 rounded-pill bg-primary-subtle" src="assets/backoffice/assets/images/shapes/01.png" alt="">
                                   </div>
                                   <div class="ms-3">
                                     <h6 class="mb-0 ">Bni Emma Watson</h6>
@@ -1019,7 +750,7 @@
                 </li>
                 <li class="nav-item dropdown custom-drop">
                   <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <!-- <img src="assets/backoffice/assets/images/avatars/01.png" alt="User-Profile" class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded"> -->
+                    <img src="assets/backoffice/assets/images/avatars/01.png" alt="User-Profile" class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                     <img src="assets/backoffice/assets/images/avatars/avtar_1.png" alt="User-Profile" class="theme-color-purple-img img-fluid avatar avatar-50 avatar-rounded">
                     <img src="assets/backoffice/assets/images/avatars/avtar_2.png" alt="User-Profile" class="theme-color-blue-img img-fluid avatar avatar-50 avatar-rounded">
                     <img src="assets/backoffice/assets/images/avatars/avtar_4.png" alt="User-Profile" class="theme-color-green-img img-fluid avatar avatar-50 avatar-rounded">
@@ -1052,6 +783,10 @@
                               </div>
                               <div>
                                   <a href="" class="btn btn-link btn-soft-light">
+                                          
+                                    <div class="iq-header-img">
+                                     <img src="assets/backoffice/assets/images/dashboard/top-header.png" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+                                      </div>
                                       <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M11.8251 15.2171H12.1748C14.0987 15.2171 15.731 13.985 16.3054 12.2764C16.3887 12.0276 16.1979 11.7713 15.9334 11.7713H14.8562C14.5133 11.7713 14.2362 11.4977 14.2362 11.16C14.2362 10.8213 14.5133 10.5467 14.8562 10.5467H15.9005C16.2463 10.5467 16.5263 10.2703 16.5263 9.92875C16.5263 9.58722 16.2463 9.31075 15.9005 9.31075H14.8562C14.5133 9.31075 14.2362 9.03619 14.2362 8.69849C14.2362 8.35984 14.5133 8.08528 14.8562 8.08528H15.9005C16.2463 8.08528 16.5263 7.8088 16.5263 7.46728C16.5263 7.12575 16.2463 6.84928 15.9005 6.84928H14.8562C14.5133 6.84928 14.2362 6.57472 14.2362 6.23606C14.2362 5.89837 14.5133 5.62381 14.8562 5.62381H15.9886C16.2483 5.62381 16.4343 5.3789 16.3645 5.13113C15.8501 3.32401 14.1694 2 12.1748 2H11.8251C9.42172 2 7.47363 3.92287 7.47363 6.29729V10.9198C7.47363 13.2933 9.42172 15.2171 11.8251 15.2171Z" fill="currentColor"></path>
                                           <path opacity="0.4" d="M19.5313 9.82568C18.9966 9.82568 18.5626 10.2533 18.5626 10.7823C18.5626 14.3554 15.6186 17.2627 12.0005 17.2627C8.38136 17.2627 5.43743 14.3554 5.43743 10.7823C5.43743 10.2533 5.00345 9.82568 4.46872 9.82568C3.93398 9.82568 3.5 10.2533 3.5 10.7823C3.5 15.0873 6.79945 18.6413 11.0318 19.1186V21.0434C11.0318 21.5715 11.4648 22.0001 12.0005 22.0001C12.5352 22.0001 12.9692 21.5715 12.9692 21.0434V19.1186C17.2006 18.6413 20.5 15.0873 20.5 10.7823C20.5 10.2533 20.066 9.82568 19.5313 9.82568Z" fill="currentColor"></path>
@@ -1063,14 +798,6 @@
                       </div>
                   </div>
               </div>
-              <div class="iq-header-img">
-                  <img src="assets/backoffice/assets/images/dashboard/top-header.png" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="assets/backoffice/assets/images/dashboard/top-header1.png" alt="header" class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="assets/backoffice/assets/images/dashboard/top-header2.png" alt="header" class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="assets/backoffice/assets/images/dashboard/top-header3.png" alt="header" class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="assets/backoffice/assets/images/dashboard/top-header4.png" alt="header" class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX">
-                  <img src="assets/backoffice/assets/images/dashboard/top-header5.png" alt="header" class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
-              </div>
           </div>          <!-- Nav Header Component End -->
         <!--Nav End-->
       </div>
@@ -1079,7 +806,9 @@
    <div class="col-md-12 col-lg-12">
       <div class="row row-cols-1">
          <div class="overflow-hidden d-slider1 ">
+            
             <ul  class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+                <div class="swiper-button swiper-button-prev"></div>
                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
                   <div class="card-body">
                      <div class="progress-widget">
@@ -1185,12 +914,13 @@
                      </div>
                   </div>
                </li>
+               <div class="swiper-button swiper-button-next"></div>
             </ul>
-            <div class="swiper-button swiper-button-next"></div>
-            <div class="swiper-button swiper-button-prev"></div>
+            
+            
          </div>
       </div>
-   </div>
+</div>
    <div class="col-md-12 col-lg-8">
       <div class="row">
          <div class="col-md-12">
@@ -1234,7 +964,7 @@
                   </div>
                </div>
                <div class="card-body">
-                  <div id="d-main" class="d-main"></div>
+                  <div id="d-main" class="d-main" style="min-height: 260px;"><div id="apexcharts29am93dwh" class="apexcharts-canvas apexcharts29am93dwh apexcharts-theme-light" style="width: 326px; height: 245px;"><svg id="SvgjsSvg3047" width="326" height="245" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" class="apexcharts-svg apexcharts-zoomable hovering-zoom" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><foreignObject x="0" y="0" width="326" height="245"><div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml" style="max-height: 122.5px;"></div></foreignObject><rect id="SvgjsRect3052" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g id="SvgjsG3100" class="apexcharts-yaxis" rel="0" transform="translate(-4, 0)"><g id="SvgjsG3101" class="apexcharts-yaxis-texts-g"><text id="SvgjsText3103" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="20" y="31.5" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3104">99</tspan><title>99</title></text><text id="SvgjsText3106" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="20" y="69.1" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3107">90</tspan><title>90</title></text><text id="SvgjsText3109" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="20" y="106.69999999999999" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3110">81</tspan><title>81</title></text><text id="SvgjsText3112" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="20" y="144.29999999999998" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3113">72</tspan><title>72</title></text><text id="SvgjsText3115" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="20" y="181.89999999999998" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3116">63</tspan><title>63</title></text><text id="SvgjsText3118" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="20" y="219.49999999999997" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3119">54</tspan><title>54</title></text></g></g><g id="SvgjsG3049" class="apexcharts-inner apexcharts-graphical" transform="translate(31, 30)"><defs id="SvgjsDefs3048"><clipPath id="gridRectMask29am93dwh"><rect id="SvgjsRect3054" width="280.7865228652954" height="204" x="-5" y="-8" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMask29am93dwh"></clipPath><clipPath id="nonForecastMask29am93dwh"></clipPath><clipPath id="gridRectMarkerMask29am93dwh"><rect id="SvgjsRect3055" width="277.7865228652954" height="192" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient3060" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop3061" stop-opacity="0.4" stop-color="rgba(0,195,249,0.4)" offset="0"></stop><stop id="SvgjsStop3062" stop-opacity="0.1" stop-color="rgba(0,195,249,0.1)" offset="0.5"></stop><stop id="SvgjsStop3063" stop-opacity="0.1" stop-color="rgba(0,195,249,0.1)" offset="0.6"></stop></linearGradient><linearGradient id="SvgjsLinearGradient3069" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop3070" stop-opacity="0.4" stop-color="rgba(87,59,255,0.4)" offset="0"></stop><stop id="SvgjsStop3071" stop-opacity="0.1" stop-color="rgba(87,59,255,0.1)" offset="0.5"></stop><stop id="SvgjsStop3072" stop-opacity="0.1" stop-color="rgba(87,59,255,0.1)" offset="0.6"></stop></linearGradient></defs><line id="SvgjsLine3053" x1="-0.5" y1="0" x2="-0.5" y2="188" stroke="#b6b6b6" stroke-dasharray="3" stroke-linecap="butt" class="apexcharts-xcrosshairs" x="-0.5" y="0" width="1" height="188" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><line id="SvgjsLine3079" x1="0" y1="189" x2="0" y2="195" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line id="SvgjsLine3080" x1="273.7865228652954" y1="189" x2="273.7865228652954" y2="195" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><g id="SvgjsG3075" class="apexcharts-grid"><g id="SvgjsG3076" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine3081" x1="0" y1="0" x2="273.7865228652954" y2="0" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line id="SvgjsLine3082" x1="0" y1="37.6" x2="273.7865228652954" y2="37.6" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line id="SvgjsLine3083" x1="0" y1="75.2" x2="273.7865228652954" y2="75.2" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line id="SvgjsLine3084" x1="0" y1="112.80000000000001" x2="273.7865228652954" y2="112.80000000000001" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line id="SvgjsLine3085" x1="0" y1="150.4" x2="273.7865228652954" y2="150.4" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line id="SvgjsLine3086" x1="0" y1="188" x2="273.7865228652954" y2="188" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line></g><g id="SvgjsG3077" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine3088" x1="0" y1="188" x2="273.7865228652954" y2="188" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line><line id="SvgjsLine3087" x1="0" y1="1" x2="0" y2="188" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line></g><g id="SvgjsG3078" class="apexcharts-grid-borders" style="display: none;"></g><g id="SvgjsG3056" class="apexcharts-area-series apexcharts-plot-series"><g id="SvgjsG3057" class="apexcharts-series" zIndex="0" seriesName="total" data:longestSeries="true" rel="1" data:realIndex="0"><path id="SvgjsPath3064" d="M -547.5730457305908 188 L -547.5730457305908 20.888888888888914C-503.9335591583718, 30.211572323334245, -365.04869715372723, 79.3777777777778, -273.7865228652954, 79.3777777777778S-91.26217428843181, 20.888888888888914, 0, 20.888888888888914S182.5243485768636, 79.3777777777778, 273.7865228652954, 79.3777777777778S456.310871442159, 20.888888888888914, 547.5730457305908, 20.888888888888914S730.0973943074545, 79.3777777777778, 821.3595685958862, 79.3777777777778S1051.5066048889626, 30.211572323334245, 1095.1460914611816, 20.888888888888914 L 1095.1460914611816 188 L -547.5730457305908 188M -547.5730457305908 20.888888888888914z" fill="url(#SvgjsLinearGradient3060)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMask29am93dwh)" pathTo="M -547.5730457305908 188 L -547.5730457305908 20.888888888888914C-503.9335591583718, 30.211572323334245, -365.04869715372723, 79.3777777777778, -273.7865228652954, 79.3777777777778S-91.26217428843181, 20.888888888888914, 0, 20.888888888888914S182.5243485768636, 79.3777777777778, 273.7865228652954, 79.3777777777778S456.310871442159, 20.888888888888914, 547.5730457305908, 20.888888888888914S730.0973943074545, 79.3777777777778, 821.3595685958862, 79.3777777777778S1051.5066048889626, 30.211572323334245, 1095.1460914611816, 20.888888888888914 L 1095.1460914611816 188 L -547.5730457305908 188M -547.5730457305908 20.888888888888914z" pathFrom="M -1459.5730457305908 188 L -1459.5730457305908 20.888888888888914C-1338.7182396467433, 30.574821834010056, -973.0486971537272, 79.3777777777778, -729.7865228652954, 79.3777777777778S-243.2621742884318, 20.888888888888914, 0, 20.888888888888914S486.52434857686364, 79.3777777777778, 729.7865228652954, 79.3777777777778S1216.310871442159, 20.888888888888914, 1459.5730457305908, 20.888888888888914S1946.0973943074544, 79.3777777777778, 2189.3595685958862, 79.3777777777778S2798.291285377334, 30.574821834010056, 2919.1460914611816, 20.888888888888914 L 2919.1460914611816 188 L -1459.5730457305908 188M -1459.5730457305908 20.888888888888914z"></path><path id="SvgjsPath3065" d="M -547.5730457305908 20.888888888888914C-503.9335591583718, 30.211572323334245, -365.04869715372723, 79.3777777777778, -273.7865228652954, 79.3777777777778S-91.26217428843181, 20.888888888888914, 0, 20.888888888888914S182.5243485768636, 79.3777777777778, 273.7865228652954, 79.3777777777778S456.310871442159, 20.888888888888914, 547.5730457305908, 20.888888888888914S730.0973943074545, 79.3777777777778, 821.3595685958862, 79.3777777777778S1051.5066048889626, 30.211572323334245, 1095.1460914611816, 20.888888888888914" fill="none" fill-opacity="1" stroke="#00c3f9" stroke-opacity="1" stroke-linecap="butt" stroke-width="3" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMask29am93dwh)" pathTo="M -547.5730457305908 20.888888888888914C-503.9335591583718, 30.211572323334245, -365.04869715372723, 79.3777777777778, -273.7865228652954, 79.3777777777778S-91.26217428843181, 20.888888888888914, 0, 20.888888888888914S182.5243485768636, 79.3777777777778, 273.7865228652954, 79.3777777777778S456.310871442159, 20.888888888888914, 547.5730457305908, 20.888888888888914S730.0973943074545, 79.3777777777778, 821.3595685958862, 79.3777777777778S1051.5066048889626, 30.211572323334245, 1095.1460914611816, 20.888888888888914" pathFrom="M -1459.5730457305908 20.888888888888914C-1338.7182396467433, 30.574821834010056, -973.0486971537272, 79.3777777777778, -729.7865228652954, 79.3777777777778S-243.2621742884318, 20.888888888888914, 0, 20.888888888888914S486.52434857686364, 79.3777777777778, 729.7865228652954, 79.3777777777778S1216.310871442159, 20.888888888888914, 1459.5730457305908, 20.888888888888914S1946.0973943074544, 79.3777777777778, 2189.3595685958862, 79.3777777777778S2798.291285377334, 30.574821834010056, 2919.1460914611816, 20.888888888888914" fill-rule="evenodd"></path><g id="SvgjsG3058" class="apexcharts-series-markers-wrap apexcharts-hidden-element-shown" data:realIndex="0"><g class="apexcharts-series-markers"><circle id="SvgjsCircle3123" r="0" cx="0" cy="20.888888888888914" class="apexcharts-marker wrdl153l6 no-pointer-events" stroke="#ffffff" fill="#00c3f9" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG3066" class="apexcharts-series" zIndex="1" seriesName="pipline" data:longestSeries="true" rel="2" data:realIndex="1"><path id="SvgjsPath3073" d="M -547.5730457305908 188 L -547.5730457305908 112.80000000000001C-503.42231710082274, 120.88448557708857, -364.2900591612108, 171.21943139521807, -273.7865228652954, 162.93333333333337S-91.26217428843181, 62.666666666666686, 0, 62.666666666666686S183.0525220775586, 156.01066803533436, 273.7865228652954, 162.93333333333337S456.310871442159, 104.44444444444446, 547.5730457305908, 104.44444444444446S730.1823149040962, 165.71592686880686, 821.3595685958862, 162.93333333333337S1052.7160029352644, 99.38745941578792, 1095.1460914611816, 87.73333333333335 L 1095.1460914611816 188 L -547.5730457305908 188M -547.5730457305908 112.80000000000001z" fill="url(#SvgjsLinearGradient3069)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="1" clip-path="url(#gridRectMask29am93dwh)" pathTo="M -547.5730457305908 188 L -547.5730457305908 112.80000000000001C-503.42231710082274, 120.88448557708857, -364.2900591612108, 171.21943139521807, -273.7865228652954, 162.93333333333337S-91.26217428843181, 62.666666666666686, 0, 62.666666666666686S183.0525220775586, 156.01066803533436, 273.7865228652954, 162.93333333333337S456.310871442159, 104.44444444444446, 547.5730457305908, 104.44444444444446S730.1823149040962, 165.71592686880686, 821.3595685958862, 162.93333333333337S1052.7160029352644, 99.38745941578792, 1095.1460914611816, 87.73333333333335 L 1095.1460914611816 188 L -547.5730457305908 188M -547.5730457305908 112.80000000000001z" pathFrom="M -1459.5730457305908 188 L -1459.5730457305908 112.80000000000001C-1338.5132548774452, 121.11630984945528, -972.7620391925652, 171.2790427772732, -729.7865228652954, 162.93333333333337S-243.2621742884318, 62.666666666666686, 0, 62.666666666666686S486.72348830848114, 155.97607040400598, 729.7865228652954, 162.93333333333337S1216.310871442159, 104.44444444444446, 1459.5730457305908, 104.44444444444446S1946.129278589496, 165.71815346533984, 2189.3595685958862, 162.93333333333337S2798.792918085345, 100.13498553475867, 2919.1460914611816, 87.73333333333335 L 2919.1460914611816 188 L -1459.5730457305908 188M -1459.5730457305908 112.80000000000001z"></path><path id="SvgjsPath3074" d="M -547.5730457305908 112.80000000000001C-503.42231710082274, 120.88448557708857, -364.2900591612108, 171.21943139521807, -273.7865228652954, 162.93333333333337S-91.26217428843181, 62.666666666666686, 0, 62.666666666666686S183.0525220775586, 156.01066803533436, 273.7865228652954, 162.93333333333337S456.310871442159, 104.44444444444446, 547.5730457305908, 104.44444444444446S730.1823149040962, 165.71592686880686, 821.3595685958862, 162.93333333333337S1052.7160029352644, 99.38745941578792, 1095.1460914611816, 87.73333333333335" fill="none" fill-opacity="1" stroke="#573bff" stroke-opacity="1" stroke-linecap="butt" stroke-width="3" stroke-dasharray="0" class="apexcharts-area" index="1" clip-path="url(#gridRectMask29am93dwh)" pathTo="M -547.5730457305908 112.80000000000001C-503.42231710082274, 120.88448557708857, -364.2900591612108, 171.21943139521807, -273.7865228652954, 162.93333333333337S-91.26217428843181, 62.666666666666686, 0, 62.666666666666686S183.0525220775586, 156.01066803533436, 273.7865228652954, 162.93333333333337S456.310871442159, 104.44444444444446, 547.5730457305908, 104.44444444444446S730.1823149040962, 165.71592686880686, 821.3595685958862, 162.93333333333337S1052.7160029352644, 99.38745941578792, 1095.1460914611816, 87.73333333333335" pathFrom="M -1459.5730457305908 112.80000000000001C-1338.5132548774452, 121.11630984945528, -972.7620391925652, 171.2790427772732, -729.7865228652954, 162.93333333333337S-243.2621742884318, 62.666666666666686, 0, 62.666666666666686S486.72348830848114, 155.97607040400598, 729.7865228652954, 162.93333333333337S1216.310871442159, 104.44444444444446, 1459.5730457305908, 104.44444444444446S1946.129278589496, 165.71815346533984, 2189.3595685958862, 162.93333333333337S2798.792918085345, 100.13498553475867, 2919.1460914611816, 87.73333333333335" fill-rule="evenodd"></path><g id="SvgjsG3067" class="apexcharts-series-markers-wrap apexcharts-hidden-element-shown" data:realIndex="1"><g class="apexcharts-series-markers"><circle id="SvgjsCircle3124" r="0" cx="0" cy="62.666666666666686" class="apexcharts-marker we7j8bntt no-pointer-events" stroke="#ffffff" fill="#573bff" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG3059" class="apexcharts-datalabels" data:realIndex="0"></g><g id="SvgjsG3068" class="apexcharts-datalabels" data:realIndex="1"></g></g><line id="SvgjsLine3089" x1="0" y1="0" x2="273.7865228652954" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine3090" x1="0" y1="0" x2="273.7865228652954" y2="0" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG3091" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG3092" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"><text id="SvgjsText3094" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="0" y="217" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3095">Mar</tspan><title>Mar</title></text><text id="SvgjsText3097" font-family="&quot;Inter&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;" x="273.7865228652954" y="217" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-weight="400" fill="#8a92a6" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;"><tspan id="SvgjsTspan3098">Apr</tspan><title>Apr</title></text></g><line id="SvgjsLine3099" x1="0" y1="189" x2="273.7865228652954" y2="189" stroke="#e0e0e0" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt"></line></g><g id="SvgjsG3120" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG3121" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG3122" class="apexcharts-point-annotations"></g><rect id="SvgjsRect3125" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-zoom-rect"></rect><rect id="SvgjsRect3126" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-selection-rect"></rect></g></svg><div class="apexcharts-tooltip apexcharts-theme-light" style="left: 42px; top: 23.8889px;"><div class="apexcharts-tooltip-title" style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 12px;">Mar</div><div class="apexcharts-tooltip-series-group apexcharts-active" style="order: 1; display: flex;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(0, 195, 249); display: block;"></span><div class="apexcharts-tooltip-text" style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 12px; display: block;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-y-label">total: </span><span class="apexcharts-tooltip-text-y-value">94</span></div><div class="apexcharts-tooltip-goals-group"><span class="apexcharts-tooltip-text-goals-label"></span><span class="apexcharts-tooltip-text-goals-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div><div class="apexcharts-tooltip-series-group apexcharts-active" style="order: 2; display: flex;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(87, 59, 255); display: block;"></span><div class="apexcharts-tooltip-text" style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 12px; display: block;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-y-label">pipline: </span><span class="apexcharts-tooltip-text-y-value">84</span></div><div class="apexcharts-tooltip-goals-group"><span class="apexcharts-tooltip-text-goals-label"></span><span class="apexcharts-tooltip-text-goals-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom apexcharts-theme-light" style="left: 9.15px; top: 220px;"><div class="apexcharts-xaxistooltip-text" style="font-family: Inter, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 12px; min-width: 20.9133px;">Mar</div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
                </div>
             </div>
          </div>
@@ -1260,9 +990,9 @@
                      <div id="myChart" class="col-md-8 col-lg-8 myChart"></div>
                      <div class="d-grid gap col-md-4 col-lg-4">
                         <div class="d-flex align-items-start">
+                          
                            <svg class="mt-2 icon-14" xmlns="http://www.w3.org/2000/svg" width="14" viewBox="0 0 24 24" fill="#3a57e8">
-                              <g>
-                                 <circle cx="12" cy="12" r="8" fill="#3a57e8"></circle>
+                              <g><circle cx="12" cy="12" r="8" fill="#3a57e8"></circle>
                               </g>
                            </svg>
                            <div class="ms-3">
@@ -1336,7 +1066,7 @@
                            <tr>
                               <td>
                                  <div class="d-flex align-items-center">
-                                    <!-- <img class="rounded bg-primary-subtle img-fluid avatar-40 me-3" src="../assets/images/shapes/01.png" alt="profile"> -->
+                                    <img class="rounded bg-primary-subtle img-fluid avatar-40 me-3" src="assets/backoffice/assets/images/shapes/01.png" alt="profile">
                                     <h6>Addidis Sportwear</h6>
                                  </div>
                               </td>
@@ -1768,12 +1498,12 @@
             <h5 class="mb-3 mt-4">Scheme Direction</h5>
             <div class="d-grid gap-3 grid-cols-2 mb-4">
               <div class="text-center">
-                <!-- <img src="assets/backoffice/assets/images/settings/dark/01.png" alt="ltr"
+                <img src="assets/backoffice/assets/images/settings/dark/01.png" alt="ltr"
                   class="mode dark-img img-fluid btn-border p-0 flex-column active mb-2" data-setting="dir-mode"
-                  data-name="dir" data-value="ltr"> -->
-                <!-- <img src="assets/backoffice/assets/images/settings/light/01.png" alt="ltr"
+                  data-name="dir" data-value="ltr">
+                <img src="assets/backoffice/assets/images/settings/light/01.png" alt="ltr"
                   class="mode light-img img-fluid btn-border p-0 flex-column active mb-2" data-setting="dir-mode"
-                  data-name="dir" data-value="ltr"> -->
+                  data-name="dir" data-value="ltr">
                 <span class=" mt-2"> LTR </span>
               </div>
               <div class="text-center">
@@ -1926,8 +1656,82 @@
         </div>
       </div>
     </div>
-     <!-- Ajouter jQuery en premier -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#ss').DataTable(); // Vérifie que l'ID correspond bien à ta table
+        });
+      </script>
+
+    <!-- JavaScript to initialize the chart -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var ctx = document.getElementById('d-main').getContext('2d');
+
+    var salesCostChart = new Chart(ctx, {
+        type: 'line', // Choose the type of chart (line, bar, etc.)
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'], // Labels for the X-axis
+            datasets: [{
+                label: 'Sales', // Dataset label for Sales
+                borderColor: '#4bc7d2', // Color of the Sales line
+                data: [90, 85, 94, 80, 77, 88, 90], // Sales data
+                fill: false, // Don't fill the area under the line
+                pointRadius: 5, // Radius of the points
+                pointBackgroundColor: '#4bc7d2',
+                tension: 0.4 // Smoothness of the line
+            }, {
+                label: 'Cost', // Dataset label for Cost
+                borderColor: '#7e57c2', // Color of the Cost line
+                data: [80, 78, 84, 75, 73, 70, 65], // Cost data
+                fill: false, // Don't fill the area under the line
+                pointRadius: 5, // Radius of the points
+                pointBackgroundColor: '#7e57c2',
+                tension: 0.4 // Smoothness of the line
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        // Custom tooltip content to display additional data
+                        title: function(tooltipItem) {
+                            var month = tooltipItem[0].label;
+                            var totalSales = salesCostChart.data.datasets[0].data[tooltipItem[0].index];
+                            var totalCost = salesCostChart.data.datasets[1].data[tooltipItem[0].index];
+                            var pipeline = totalSales - totalCost;
+                            return `${month} (Total Sales: ${totalSales}, Pipeline: ${pipeline})`;
+                        },
+                        label: function(tooltipItem) {
+                            return tooltipItem.raw;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Month'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Value ($K)'
+                    }
+                }
+            }
+        }
+    });
+});
+
+    </script>
+      
+
     <!-- Library Bundle Script -->
     <script src="assets/backoffice/assets/js/core/libs.min.js"></script>
     
@@ -1955,13 +1759,13 @@
     
     <!-- AOS Animation Plugin-->
     <script src="assets/backoffice/assets/vendor/aos/dist/aos.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/circle-progress/1.2.2/circle-progress.min.js"></script>
    
 
     
+    
     <!-- App Script -->
     <script src="assets/backoffice/assets/js/hope-ui.js" defer></script>
-
-      
-    
   </body>
 </html>

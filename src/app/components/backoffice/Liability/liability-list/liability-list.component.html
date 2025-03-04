@@ -1,0 +1,29 @@
+<app-header-back></app-header-back><div class="liability-list">
+    <h2>Liability List</h2>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let liability of liabilities">
+          <td>{{ liability.name }}</td>
+          <td>{{ liability.amount }}</td>
+          <td>{{ liability.typeLiability }}</td>
+          <td>{{ liability.categorieLiability }}</td>
+          <td>
+            <button (click)="editLiability(liability.idLiability!)">Edit</button>
+            <button (click)="deleteLiability(liability.idLiability!)">Delete</button>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,15 +26,13 @@ import { FooterFrontComponent } from './components/frontoffice/footer-front/foot
 import { FooterBackComponent } from './components/backoffice/footer-back/footer-back.component';
 import { HeaderBackComponent } from './components/backoffice/header-back/header-back.component';
 import { AllTemplateBackComponent } from './components/backoffice/all-template-back/all-template-back.component';
+import { SigninComponent } from './components/frontoffice/signin/signin.component';
 import { HorizontalComponent } from './components/backoffice/sidebarstyle/horizontal/horizontal.component';
-import {ex} from "@fullcalendar/core/internal-common";
-import {KeycloakService} from "../services/keycloak/keycloak.service";
-import {HttpTokenInterceptor} from "../services/interceptor/http-token.interceptor";
-import { LoginComponent } from './components/frontoffice/login/login.component';
+import { AdminComponent } from './components/backoffice/admin/admin.component';
+import { LiabilityListComponent } from './components/backoffice/Liability/liability-list/liability-list.component';
+import { LiabilityFormComponent } from './components/backoffice/Liability/liability-form/liability-form.component';
 
-export  function kcFactory(kcService: KeycloakService){
-  return () =>  kcService.init();
-}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,11 +42,14 @@ export  function kcFactory(kcService: KeycloakService){
     FooterBackComponent,
     HeaderBackComponent,
     AllTemplateBackComponent,
+    SigninComponent,
     HorizontalComponent,
-    LoginComponent
+    AdminComponent,
+    LiabilityListComponent,
+    LiabilityFormComponent
   ],
   imports: [
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([]), 
     BrowserModule,
     AppRoutingModule,
     FullCalendarModule,
@@ -56,7 +57,7 @@ export  function kcFactory(kcService: KeycloakService){
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, 
     ToastrModule.forRoot({
       positionClass: 'toast-top-center',
       closeButton: true,
@@ -67,21 +68,8 @@ export  function kcFactory(kcService: KeycloakService){
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
-    HttpClientModule
   ],
-  providers: [
-    HttpClient,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpTokenInterceptor,
-      multi: true
-    },
-    {provide: APP_INITIALIZER,
-      deps: [KeycloakService],
-      useFactory: kcFactory,
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
