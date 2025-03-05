@@ -1,0 +1,120 @@
+<header-back></header-back>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Candidate Evaluations</h2>
+
+    <!-- Form and List Card -->
+    <div class="card">
+        <div class="card-header">
+            {{ selectedEvaluation ? 'Update Evaluation' : 'Add New Evaluation' }}
+        </div>
+        <div class="card-body">
+            <!-- Form -->
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Candidate ID</label>
+                    <input type="number" class="form-control" [(ngModel)]="newEvaluation.candidateId" name="candidateId"
+                           *ngIf="!selectedEvaluation">
+                    <input type="number" class="form-control" [(ngModel)]="selectedEvaluation.candidateId" name="updateCandidateId"
+                           *ngIf="selectedEvaluation">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Job Offer ID</label>
+                    <input type="number" class="form-control" [(ngModel)]="newEvaluation.jobOfferId" name="jobOfferId"
+                           *ngIf="!selectedEvaluation">
+                    <input type="number" class="form-control" [(ngModel)]="selectedEvaluation.jobOfferId" name="updateJobOfferId"
+                           *ngIf="selectedEvaluation">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Evaluator ID</label>
+                    <input type="number" class="form-control" [(ngModel)]="newEvaluation.evaluatorId" name="evaluatorId"
+                           *ngIf="!selectedEvaluation">
+                    <input type="number" class="form-control" [(ngModel)]="selectedEvaluation.evaluatorId" name="updateEvaluatorId"
+                           *ngIf="selectedEvaluation">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Evaluation Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="newEvaluation.evaluationDate" name="evaluationDate"
+                           *ngIf="!selectedEvaluation">
+                    <input type="date" class="form-control" [(ngModel)]="selectedEvaluation.evaluationDate" name="updateEvaluationDate"
+                           *ngIf="selectedEvaluation">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Comments</label>
+                    <textarea class="form-control" [(ngModel)]="newEvaluation.comments" name="comments"
+                              *ngIf="!selectedEvaluation"></textarea>
+                    <textarea class="form-control" [(ngModel)]="selectedEvaluation.comments" name="updateComments"
+                              *ngIf="selectedEvaluation"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Rating</label>
+                    <input type="number" class="form-control" [(ngModel)]="newEvaluation.rating" name="rating"
+                           *ngIf="!selectedEvaluation">
+                    <input type="number" class="form-control" [(ngModel)]="selectedEvaluation.rating" name="updateRating"
+                           *ngIf="selectedEvaluation">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <select class="form-control" [(ngModel)]="newEvaluation.status" name="status"
+                            *ngIf="!selectedEvaluation">
+                        <option value="PENDING">PENDING</option>
+                        <option value="IN_PROGRESS">IN_PROGRESS</option>
+                        <option value="COMPLETED">COMPLETED</option>
+                        <option value="CANCELLED">CANCELLED</option>
+                    </select>
+                    <select class="form-control" [(ngModel)]="selectedEvaluation.status" name="updateStatus"
+                            *ngIf="selectedEvaluation">
+                        <option value="PENDING">PENDING</option>
+                        <option value="IN_PROGRESS">IN_PROGRESS</option>
+                        <option value="COMPLETED">COMPLETED</option>
+                        <option value="CANCELLED">CANCELLED</option>
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary" (click)="saveEvaluation()">
+                        {{ selectedEvaluation ? 'Update' : 'Add' }}
+                    </button>
+                    <button *ngIf="selectedEvaluation" type="button" class="btn btn-secondary" (click)="cancelUpdate()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+
+            <!-- List of Evaluations -->
+            <div class="mt-4">
+                <h4>All Candidate Evaluations</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Candidate ID</th>
+                                <th>Job Offer ID</th>
+                                <th>Evaluator ID</th>
+                                <th>Evaluation Date</th>
+                                <th>Comments</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let evaluation of evaluations">
+                                <td>{{ evaluation.candidateId }}</td>
+                                <td>{{ evaluation.jobOfferId }}</td>
+                                <td>{{ evaluation.evaluatorId }}</td>
+                                <td>{{ evaluation.evaluationDate }}</td>
+                                <td>{{ evaluation.comments }}</td>
+                                <td>{{ evaluation.rating }}</td>
+                                <td>{{ evaluation.status }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning me-2" (click)="selectForUpdate(evaluation)">Edit</button>
+                                    <button class="btn btn-sm btn-danger" (click)="deleteEvaluation(evaluation.id)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

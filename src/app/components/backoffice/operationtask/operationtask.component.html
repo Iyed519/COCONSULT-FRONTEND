@@ -1,0 +1,99 @@
+<header-back></header-back>
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Operation Tasks Management</h2>
+
+  <!-- Form and List Card -->
+  <div class="card">
+    <div class="card-header">
+      {{ selectedTask ? 'Update Task' : 'Add New Task' }}
+    </div>
+    <div class="card-body">
+      <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+
+        <!-- Task Name -->
+        <div class="mb-3">
+          <label class="form-label">Task Name</label>
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" formControlName="description"></textarea>
+        </div>
+
+        <!-- Date Fields (Start Date, End Date, Deadline) -->
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Start Date</label>
+            <input type="date" class="form-control" formControlName="startDate">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">End Date</label>
+            <input type="date" class="form-control" formControlName="endDate">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Deadline</label>
+            <input type="date" class="form-control" formControlName="deadline">
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div class="mb-3">
+          <label class="form-label">Status</label>
+          <select class="form-control" formControlName="status">
+            <option value="PENDING">PENDING</option>
+            <option value="IN_PROGRESS">IN_PROGRESS</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="CANCELLED">CANCELLED</option>
+          </select>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">
+            {{ selectedTask ? 'Update' : 'Add' }}
+          </button>
+          <button *ngIf="selectedTask" type="button" class="btn btn-secondary" (click)="cancelUpdate()">
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      <!-- List of Tasks -->
+      <div class="mt-4">
+        <h4>All Operation Tasks</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of operationTasks">
+                <td>{{ task.name }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.startDate }}</td>
+                <td>{{ task.endDate }}</td>
+                <td>{{ task.deadline }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                  <button class="btn btn-sm btn-warning me-2" (click)="selectForUpdate(task)">Edit</button>
+                  <button class="btn btn-sm btn-danger" (click)="deleteTask(task.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

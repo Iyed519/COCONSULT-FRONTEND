@@ -1,0 +1,163 @@
+<header-back></header-back>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Post Management</h2>
+
+    <!-- Form and List Card -->
+    <div class="card">
+        <div class="card-header">
+            {{ selectedPost ? 'Update Post' : 'Add New Post' }}
+        </div>
+        <div class="card-body">
+            <!-- Form -->
+            <form [formGroup]="postForm">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <!-- Code Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Code</label>
+                            <input type="text" class="form-control" formControlName="code" placeholder="e.g., FCH-RH-02">
+                            <div *ngIf="postForm.get('code')?.invalid && postForm.get('code')?.touched" class="text-danger">
+                                Invalid code format (e.g., FCH-RH-02).
+                            </div>
+                        </div>
+
+                        <!-- Version Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Version</label>
+                            <input type="text" class="form-control" formControlName="version" placeholder="e.g., 00">
+                            <div *ngIf="postForm.get('version')?.invalid && postForm.get('version')?.touched" class="text-danger">
+                                Invalid version format (e.g., 00).
+                            </div>
+                        </div>
+
+                        <!-- Date Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-control" formControlName="date">
+                            <div *ngIf="postForm.get('date')?.invalid && postForm.get('date')?.touched" class="text-danger">
+                                Date is required.
+                            </div>
+                        </div>
+
+                        <!-- Designation Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Designation</label>
+                            <input type="text" class="form-control" formControlName="designation">
+                            <div *ngIf="postForm.get('designation')?.invalid && postForm.get('designation')?.touched" class="text-danger">
+                                Designation is required.
+                            </div>
+                        </div>
+
+                        <!-- Interim Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Interim</label>
+                            <input type="text" class="form-control" formControlName="interim">
+                            <div *ngIf="postForm.get('interim')?.invalid && postForm.get('interim')?.touched" class="text-danger">
+                                Interim is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <!-- Formations Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Formations</label>
+                            <input type="text" class="form-control" formControlName="formations">
+                            <div *ngIf="postForm.get('formations')?.invalid && postForm.get('formations')?.touched" class="text-danger">
+                                Formations is required.
+                            </div>
+                        </div>
+
+                        <!-- Experiences Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Experiences</label>
+                            <input type="text" class="form-control" formControlName="experiences">
+                            <div *ngIf="postForm.get('experiences')?.invalid && postForm.get('experiences')?.touched" class="text-danger">
+                                Experiences is required.
+                            </div>
+                        </div>
+
+                        <!-- Contraintes Techniques Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Contraintes Techniques</label>
+                            <input type="text" class="form-control" formControlName="contraintesTechniques">
+                            <div *ngIf="postForm.get('contraintesTechniques')?.invalid && postForm.get('contraintesTechniques')?.touched" class="text-danger">
+                                Contraintes Techniques is required.
+                            </div>
+                        </div>
+
+                        <!-- Contraintes Métiers Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Contraintes Métiers</label>
+                            <input type="text" class="form-control" formControlName="contraintesMetiers">
+                            <div *ngIf="postForm.get('contraintesMetiers')?.invalid && postForm.get('contraintesMetiers')?.touched" class="text-danger">
+                                Contraintes Métiers is required.
+                            </div>
+                        </div>
+
+                        <!-- Delais Field -->
+                        <div class="mb-3">
+                            <label class="form-label">Delais</label>
+                            <input type="text" class="form-control" formControlName="delais">
+                            <div *ngIf="postForm.get('delais')?.invalid && postForm.get('delais')?.touched" class="text-danger">
+                                Delais is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Buttons -->
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary" (click)="savePost()">
+                        {{ selectedPost ? 'Update' : 'Add' }}
+                    </button>
+                    <button *ngIf="selectedPost" type="button" class="btn btn-secondary" (click)="cancelUpdate()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+
+            <!-- List of Posts -->
+            <div class="mt-4">
+                <h4>All Posts</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Code</th>
+                                <th>Version</th>
+                                <th>Date</th>
+                                <th>Designation</th>
+                                <th>Interim</th>
+                                <th>Formations</th>
+                                <th>Experiences</th>
+                                <th>Contraintes Techniques</th>
+                                <th>Contraintes Métiers</th>
+                                <th>Delais</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let post of posts">
+                                <td>{{ post.code }}</td>
+                                <td>{{ post.version }}</td>
+                                <td>{{ post.date }}</td>
+                                <td>{{ post.designation }}</td>
+                                <td>{{ post.interim }}</td>
+                                <td>{{ post.formations }}</td>
+                                <td>{{ post.experiences }}</td>
+                                <td>{{ post.contraintesTechniques }}</td>
+                                <td>{{ post.contraintesMetiers }}</td>
+                                <td>{{ post.delais }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning me-2" (click)="selectForUpdate(post)">Edit</button>
+                                    <button class="btn btn-sm btn-danger" (click)="deletePost(post.id)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

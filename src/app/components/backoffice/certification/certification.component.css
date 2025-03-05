@@ -1,0 +1,98 @@
+/* Center the form in the page */
+.container-sm {
+    margin-top: 50px;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+/* Style all inputs and selects */
+.form-control, 
+.form-select {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Add spacing between form groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button.full-width-button {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Handle invalid inputs */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Optional: Style for row-like layout on the form */
+.row.g-3 {
+    gap: 15px;
+}
+
+/* Style the date input */
+input[type="date"] {
+    cursor: pointer;
+}
+
+/* Adjust label boldness */
+label b {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Adjust form container to ensure responsiveness */
+.form-container {
+    background: #fff;
+    padding: 25px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+/* Ensure select dropdowns are properly styled */
+.form-select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" fill="%23343a40"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .form-group {
+        width: 100%;
+    }
+}

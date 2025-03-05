@@ -1,0 +1,93 @@
+<header-back></header-back>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Certifications Management</h2>
+
+    <div class="card">
+        <div class="card-header">
+            {{ selectedCertification ? 'Update Certification' : 'Add New Certification' }}
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Certification Name</label>
+                    <input type="text" class="form-control" 
+                           [(ngModel)]="selectedCertification ? selectedCertification.name : newCertification.name" 
+                           [name]="selectedCertification ? 'updateName' : 'name'">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control"
+                              [(ngModel)]="selectedCertification ? selectedCertification.description : newCertification.description"
+                              [name]="selectedCertification ? 'updateDescription' : 'description'">
+                    </textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Issue Date</label>
+                    <input type="date" class="form-control"
+                           [(ngModel)]="selectedCertification ? selectedCertification.issueDate : newCertification.issueDate"
+                           [name]="selectedCertification ? 'updateIssueDate' : 'issueDate'">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Expiry Date</label>
+                    <input type="date" class="form-control"
+                           [(ngModel)]="selectedCertification ? selectedCertification.expiryDate : newCertification.expiryDate"
+                           [name]="selectedCertification ? 'updateExpiryDate' : 'expiryDate'">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Issued By</label>
+                    <input type="text" class="form-control"
+                           [(ngModel)]="selectedCertification ? selectedCertification.issuedBy : newCertification.issuedBy"
+                           [name]="selectedCertification ? 'updateIssuedBy' : 'issuedBy'">
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary" (click)="saveCertification()">
+                        {{ selectedCertification ? 'Update' : 'Add' }}
+                    </button>
+                    <button *ngIf="selectedCertification" type="button" class="btn btn-secondary" (click)="cancelUpdate()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+
+            <!-- List of Certifications -->
+            <div class="mt-4">
+                <h4>All Certifications</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Issue Date</th>
+                                <th>Expiry Date</th>
+                                <th>Issued By</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let certification of certifications">
+                                <div>{{ certification | json }}</div>
+                                <td>{{ certification.id }}</td>
+                                <td>{{ certification.name }}</td>
+                                <td>{{ certification.description }}</td>
+                                <td>{{ certification.issueDate }}</td>
+                                <td>{{ certification.expiryDate }}</td>
+                                <td>{{ certification.issuedBy }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning me-2" (click)="selectForUpdate(certification)">Edit</button>
+                                    <button class="btn btn-sm btn-danger" (click)="deleteCertification(certification.id)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
