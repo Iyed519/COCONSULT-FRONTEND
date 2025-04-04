@@ -1,0 +1,13 @@
+.content, .main-content, .container, .row {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transition: none !important;
+}
+.card, .row, .content, .container, .main-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
