@@ -1,0 +1,1616 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "OpenAPI definition",
+      "version": "v0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:9000",
+        "description": "Generated server url"
+      }
+    ],
+    "paths": {
+      "/api/finance/updateRevenue": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateRevenue",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Revenue"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Revenue"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/updateLiability/{id}": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateLiability",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Liability"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Liability"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/updateIncomeStatement": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateIncomeStatement",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IncomeStatement"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/IncomeStatement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/updateExpense": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateExpense",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Expense"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Expense"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/updateCashFlows": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateCashFlows",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CashFlows"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CashFlows"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/updateCashFlowStatement": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateCashFlowStatement",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CashFlowStatement"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CashFlowStatement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/updateBalanceSheet": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateBalanceSheet",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BalanceSheet"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/BalanceSheet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/updateAsset": {
+        "put": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "updateAsset",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asset"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Asset"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addRevenue": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addRevenue",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Revenue"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Revenue"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addLiability": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addLiability",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Liability"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Liability"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addIncomeStatement": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addIncomeStatement",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IncomeStatement"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/IncomeStatement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addExpense": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addExpense",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Expense"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Expense"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addCashFlows": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addCashFlows",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CashFlows"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CashFlows"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addCashFlowStatement": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addCashFlowStatement",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CashFlowStatement"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CashFlowStatement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addBalancesheet": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addBalanceSheet",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BalanceSheet"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/BalanceSheet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/addAsset": {
+        "post": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "addAsset",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asset"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Asset"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findRevenueById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdRevenue",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Revenue"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findLiabilityById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdLiability",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Liability"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findIncomeStatementById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdIncomeStatement",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/IncomeStatement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findExpenseById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdExpense",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Expense"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findCashFlowsById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdCashFlows",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CashFlows"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findCashFlowStatementById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdCashFlowStatement",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CashFlowStatement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findBalanceSheetById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdBalanceSheet",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/BalanceSheet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAssetById/{id}": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findByIdAsset",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Asset"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllRevenues": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllRevenues",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Revenue"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllLiabilities": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllLiabilities",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Liability"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllIncomeStatements": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllIncomeStatements",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/IncomeStatement"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllExpenses": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllExpenses",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Expense"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllCashFlows": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllCashFlows",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CashFlows"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllCashFlowStatements": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllCashFlowStatements",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CashFlowStatement"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllBalanceSheets": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllBalanceSheets",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/BalanceSheet"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/findAllAssets": {
+        "get": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "findAllAssets",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Asset"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/finance/deleteRevenueById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteRevenueById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteLiabilityById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteLiabilityById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteIncomeStatementById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteIncomeStatementById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteExpenseById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteExpenseById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteCashFlowsById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteCashFlowsById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteCashFlowStatementById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteCashFlowStatementById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteBalanceSheetById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteBalanceSheetById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAssetById/{id}": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAssetById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllRevenue": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllRevenues",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllLiabilities": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllLiabilities",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllIncomeStatement": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllIncomeStatement",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllExpense": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllExpenses",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllCashFlows": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllCashFlows",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllCashFlowStatement": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllCashFlowStatement",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllBalanceSheet": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllBalanceSheets",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/finance/deleteAllAsset": {
+        "delete": {
+          "tags": [
+            "finance-and-accounting-process-rest-controller"
+          ],
+          "operationId": "deleteAllAssets",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Revenue": {
+          "required": [
+            "source"
+          ],
+          "type": "object",
+          "properties": {
+            "idRevenue": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "source": {
+              "type": "string"
+            },
+            "period": {
+              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            "amount": {
+              "minimum": 0.01,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "SALES",
+                "OPERATING",
+                "FINANCIAL",
+                "EXCEPTIONAL",
+                "SUBSIDIES",
+                "OTHER"
+              ]
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "Liability": {
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "idLiability": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "name": {
+              "type": "string"
+            },
+            "period": {
+              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            "amount": {
+              "minimum": 0.01,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "typeLiability": {
+              "type": "string",
+              "enum": [
+                "EQUITY",
+                "DEBTS"
+              ]
+            },
+            "categorieLiability": {
+              "type": "string",
+              "enum": [
+                "SHARE",
+                "RESERVE",
+                "NETINCOME",
+                "SHORTTERM",
+                "LONGTERM"
+              ]
+            },
+            "dueDate": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "IncomeStatement": {
+          "type": "object",
+          "properties": {
+            "idIcomeStatement": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "period": {
+              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            "totalRevenues": {
+              "minimum": 0,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "totalExpenses": {
+              "minimum": 0,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "netIncome": {
+              "type": "number"
+            }
+          }
+        },
+        "Expense": {
+          "required": [
+            "description"
+          ],
+          "type": "object",
+          "properties": {
+            "idExpense": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": {
+              "type": "string"
+            },
+            "period": {
+              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            "amount": {
+              "minimum": 0.01,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "FIXED",
+                "VARIABLE",
+                "SOCIAL",
+                "TAXESANDDUTIES",
+                "FINANCIAL",
+                "EXCEPTIONAL"
+              ]
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "CashFlows": {
+          "required": [
+            "description"
+          ],
+          "type": "object",
+          "properties": {
+            "idCashFlows": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": {
+              "type": "string"
+            },
+            "period": {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "amount": {
+              "minimum": 0,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "INFLOWS",
+                "OUTFLOWS"
+              ]
+            },
+            "categorie": {
+              "type": "string",
+              "enum": [
+                "OPERATING",
+                "INVESTING",
+                "FINANCING"
+              ]
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "CashFlowStatement": {
+          "type": "object",
+          "properties": {
+            "idCashFlowStatement": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "period": {
+              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            "totalInflows": {
+              "minimum": 0.01,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "totalOutflows": {
+              "minimum": 0.01,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "netCashFlow": {
+              "type": "number"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "BalanceSheet": {
+          "type": "object",
+          "properties": {
+            "idBalanceSheet": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "period": {
+              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            "totalAssets": {
+              "minimum": 0,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "totalLiabilities": {
+              "minimum": 0,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "resultatNet": {
+              "type": "number"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "Asset": {
+          "required": [
+            "description"
+          ],
+          "type": "object",
+          "properties": {
+            "idAsset": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": {
+              "type": "string"
+            },
+            "period": {
+              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            "value": {
+              "minimum": 0.01,
+              "exclusiveMinimum": false,
+              "type": "number"
+            },
+            "typeAsset": {
+              "type": "string",
+              "enum": [
+                "FIXED",
+                "CURRENT"
+              ]
+            },
+            "categorieAsset": {
+              "type": "string",
+              "enum": [
+                "TANGIBLE",
+                "INTANGIBLE",
+                "FINANCIAL",
+                "INVENTORY",
+                "RECEIVABLES"
+              ]
+            },
+            "acquisitionDate": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        }
+      }
+    }
+  }

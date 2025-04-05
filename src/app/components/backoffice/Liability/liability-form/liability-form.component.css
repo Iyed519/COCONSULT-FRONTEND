@@ -1,0 +1,17 @@
+.liability-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 20px;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input,
+  select,
+  button {
+    margin-top: 5px;
+  }
+  
