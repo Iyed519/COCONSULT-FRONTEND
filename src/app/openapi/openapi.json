@@ -1,1616 +1,1990 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-      "title": "OpenAPI definition",
-      "version": "v0"
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenApi specification - IyedOmri",
+    "description": "Open Api documentation for spring security and coconsult webapplication",
+    "termsOfService": "Term Of Service",
+    "contact": {
+      "name": "CoConsult",
+      "url": "https://www.linkedin.com/company/coconsult-it/?originalSubdomain=tn",
+      "email": "takouarjab@gmail.com"
     },
-    "servers": [
-      {
-        "url": "http://localhost:9000",
-        "description": "Generated server url"
+    "license": {
+      "name": "coconsult ISO web application licence",
+      "url": "https://theurl.com"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8088/api/v1",
+      "description": "Local ENV"
+    },
+    {
+      "url": "https://fakeurl",
+      "description": "PROD ENV"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/quiz/{id}": {
+      "put": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "updateQuiz",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Quiz"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
-    ],
-    "paths": {
-      "/api/finance/updateRevenue": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateRevenue",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
+    },
+    "/quiz/addQuestion/{id}": {
+      "put": {
+        "tags": [
+          "quiz"
+        ],
+        "summary": "Update an existing quiz",
+        "description": "Updates a quiz with validation",
+        "operationId": "addQuestionToQuiz",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
               "schema": {
-                "type": "integer",
-                "format": "int64"
+                "$ref": "#/components/schemas/Question"
               }
             }
-          ],
-          "requestBody": {
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Quiz updated successfully"
+          },
+          "400": {
+            "description": "Invalid quiz data: {validation messages}"
+          }
+        }
+      }
+    },
+    "/quiz/createQuiz": {
+      "post": {
+        "tags": [
+          "quiz"
+        ],
+        "summary": "Create a new quiz",
+        "description": "Creates a new quiz with validation",
+        "operationId": "createQuiz",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Quiz"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Quiz created successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Revenue"
+                  "$ref": "#/components/schemas/Quiz"
                 }
               }
-            },
-            "required": true
+            }
           },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Revenue"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/updateLiability/{id}": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateLiability",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "requestBody": {
+          "400": {
+            "description": "Invalid quiz data: {validation messages}",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Liability"
+                  "$ref": "#/components/schemas/Quiz"
                 }
               }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Liability"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/updateIncomeStatement": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateIncomeStatement",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IncomeStatement"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/IncomeStatement"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/updateExpense": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateExpense",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Expense"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Expense"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/updateCashFlows": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateCashFlows",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CashFlows"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CashFlows"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/updateCashFlowStatement": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateCashFlowStatement",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CashFlowStatement"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CashFlowStatement"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/updateBalanceSheet": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateBalanceSheet",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BalanceSheet"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BalanceSheet"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/updateAsset": {
-        "put": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "updateAsset",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Asset"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Asset"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addRevenue": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addRevenue",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Revenue"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Revenue"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addLiability": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addLiability",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Liability"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Liability"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addIncomeStatement": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addIncomeStatement",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/IncomeStatement"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/IncomeStatement"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addExpense": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addExpense",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Expense"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Expense"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addCashFlows": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addCashFlows",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CashFlows"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CashFlows"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addCashFlowStatement": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addCashFlowStatement",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CashFlowStatement"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CashFlowStatement"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addBalancesheet": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addBalanceSheet",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BalanceSheet"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BalanceSheet"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/addAsset": {
-        "post": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "addAsset",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Asset"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Asset"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findRevenueById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdRevenue",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Revenue"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findLiabilityById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdLiability",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Liability"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findIncomeStatementById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdIncomeStatement",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/IncomeStatement"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findExpenseById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdExpense",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Expense"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findCashFlowsById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdCashFlows",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CashFlows"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findCashFlowStatementById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdCashFlowStatement",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CashFlowStatement"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findBalanceSheetById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdBalanceSheet",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BalanceSheet"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAssetById/{id}": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findByIdAsset",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Asset"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllRevenues": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllRevenues",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Revenue"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllLiabilities": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllLiabilities",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Liability"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllIncomeStatements": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllIncomeStatements",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/IncomeStatement"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllExpenses": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllExpenses",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Expense"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllCashFlows": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllCashFlows",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/CashFlows"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllCashFlowStatements": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllCashFlowStatements",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/CashFlowStatement"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllBalanceSheets": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllBalanceSheets",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/BalanceSheet"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/findAllAssets": {
-        "get": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "findAllAssets",
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "*/*": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Asset"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/finance/deleteRevenueById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteRevenueById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteLiabilityById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteLiabilityById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteIncomeStatementById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteIncomeStatementById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteExpenseById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteExpenseById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteCashFlowsById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteCashFlowsById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteCashFlowStatementById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteCashFlowStatementById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteBalanceSheetById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteBalanceSheetById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAssetById/{id}": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAssetById",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllRevenue": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllRevenues",
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllLiabilities": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllLiabilities",
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllIncomeStatement": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllIncomeStatement",
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllExpense": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllExpenses",
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllCashFlows": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllCashFlows",
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllCashFlowStatement": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllCashFlowStatement",
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllBalanceSheet": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllBalanceSheets",
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/api/finance/deleteAllAsset": {
-        "delete": {
-          "tags": [
-            "finance-and-accounting-process-rest-controller"
-          ],
-          "operationId": "deleteAllAssets",
-          "responses": {
-            "200": {
-              "description": "OK"
             }
           }
         }
       }
     },
-    "components": {
-      "schemas": {
-        "Revenue": {
-          "required": [
-            "source"
-          ],
-          "type": "object",
-          "properties": {
-            "idRevenue": {
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/authenticate": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "authenticate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Trainings": {
+      "get": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "findAllTrainings",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
               "type": "integer",
-              "format": "int64"
-            },
-            "source": {
-              "type": "string"
-            },
-            "period": {
-              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
-              "type": "string"
-            },
-            "amount": {
-              "minimum": 0.01,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "SALES",
-                "OPERATING",
-                "FINANCIAL",
-                "EXCEPTIONAL",
-                "SUBSIDIES",
-                "OTHER"
-              ]
-            },
-            "date": {
-              "type": "string",
-              "format": "date"
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseTrainingResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "saveTraining",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrainingRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Trainings/cover/{training-id}": {
+      "post": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "uploadTrainingCover",
+        "parameters": [
+          {
+            "name": "training-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
             }
           }
         },
-        "Liability": {
-          "required": [
-            "name"
-          ],
-          "type": "object",
-          "properties": {
-            "idLiability": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "name": {
-              "type": "string"
-            },
-            "period": {
-              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
-              "type": "string"
-            },
-            "amount": {
-              "minimum": 0.01,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "typeLiability": {
-              "type": "string",
-              "enum": [
-                "EQUITY",
-                "DEBTS"
-              ]
-            },
-            "categorieLiability": {
-              "type": "string",
-              "enum": [
-                "SHARE",
-                "RESERVE",
-                "NETINCOME",
-                "SHORTTERM",
-                "LONGTERM"
-              ]
-            },
-            "dueDate": {
-              "type": "string",
-              "format": "date"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
             }
           }
-        },
-        "IncomeStatement": {
-          "type": "object",
-          "properties": {
-            "idIcomeStatement": {
+        }
+      }
+    },
+    "/Question/updateQuestion": {
+      "post": {
+        "tags": [
+          "question"
+        ],
+        "operationId": "updateQuestion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
               "type": "integer",
-              "format": "int64"
-            },
-            "period": {
-              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
-              "type": "string"
-            },
-            "totalRevenues": {
-              "minimum": 0,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "totalExpenses": {
-              "minimum": 0,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "date": {
-              "type": "string",
-              "format": "date"
-            },
-            "netIncome": {
-              "type": "number"
+              "format": "int32"
             }
           }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          },
+          "required": true
         },
-        "Expense": {
-          "required": [
-            "description"
-          ],
-          "type": "object",
-          "properties": {
-            "idExpense": {
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Question/deleteQuestion": {
+      "post": {
+        "tags": [
+          "question"
+        ],
+        "operationId": "deleteQuestion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
               "type": "integer",
-              "format": "int64"
-            },
-            "description": {
-              "type": "string"
-            },
-            "period": {
-              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
-              "type": "string"
-            },
-            "amount": {
-              "minimum": 0.01,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "FIXED",
-                "VARIABLE",
-                "SOCIAL",
-                "TAXESANDDUTIES",
-                "FINANCIAL",
-                "EXCEPTIONAL"
-              ]
-            },
-            "date": {
-              "type": "string",
-              "format": "date"
+              "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Question/addQuestion": {
+      "post": {
+        "tags": [
+          "question"
+        ],
+        "operationId": "addQuestion",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          },
+          "required": true
         },
-        "CashFlows": {
-          "required": [
-            "description"
-          ],
-          "type": "object",
-          "properties": {
-            "idCashFlows": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "description": {
-              "type": "string"
-            },
-            "period": {
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
-            },
-            "amount": {
-              "minimum": 0,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "INFLOWS",
-                "OUTFLOWS"
-              ]
-            },
-            "categorie": {
-              "type": "string",
-              "enum": [
-                "OPERATING",
-                "INVESTING",
-                "FINANCING"
-              ]
-            },
-            "date": {
-              "type": "string",
-              "format": "date"
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Feedbacks/saveFeedback": {
+      "get": {
+        "description": "New endpoint",
+        "responses": {
+          "200": {
+            "description": "New response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "": ""
+                }
+              }
             }
           }
+        }
+      },
+      "post": {
+        "tags": [
+          "feedback"
+        ],
+        "operationId": "saveFeedback",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeedbackRequest"
+              }
+            }
+          },
+          "required": true
         },
-        "CashFlowStatement": {
-          "type": "object",
-          "properties": {
-            "idCashFlowStatement": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "period": {
-              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
-              "type": "string"
-            },
-            "totalInflows": {
-              "minimum": 0.01,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "totalOutflows": {
-              "minimum": 0.01,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "netCashFlow": {
-              "type": "number"
-            },
-            "date": {
-              "type": "string",
-              "format": "date"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
             }
           }
-        },
-        "BalanceSheet": {
-          "type": "object",
-          "properties": {
-            "idBalanceSheet": {
+        }
+      }
+    },
+    "/Trainings/updateTrainingStatus/{training-id}": {
+      "patch": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "updateTrainingStatus",
+        "parameters": [
+          {
+            "name": "training-id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "integer",
-              "format": "int64"
-            },
-            "period": {
-              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
-              "type": "string"
-            },
-            "totalAssets": {
-              "minimum": 0,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "totalLiabilities": {
-              "minimum": 0,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "resultatNet": {
-              "type": "number"
-            },
-            "date": {
-              "type": "string",
-              "format": "date"
+              "format": "int32"
+            }
+          },
+          {
+            "name": "trainingResponse",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TrainingResponse"
             }
           }
-        },
-        "Asset": {
-          "required": [
-            "description"
-          ],
-          "type": "object",
-          "properties": {
-            "idAsset": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "description": {
-              "type": "string"
-            },
-            "period": {
-              "pattern": "^(\\d{4})-(0[1-9]|1[0-2])$",
-              "type": "string"
-            },
-            "value": {
-              "minimum": 0.01,
-              "exclusiveMinimum": false,
-              "type": "number"
-            },
-            "typeAsset": {
-              "type": "string",
-              "enum": [
-                "FIXED",
-                "CURRENT"
-              ]
-            },
-            "categorieAsset": {
-              "type": "string",
-              "enum": [
-                "TANGIBLE",
-                "INTANGIBLE",
-                "FINANCIAL",
-                "INVENTORY",
-                "RECEIVABLES"
-              ]
-            },
-            "acquisitionDate": {
-              "type": "string",
-              "format": "date"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
             }
+          }
+        }
+      }
+    },
+    "/Trainings/updateTraining/{training-id}": {
+      "patch": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "updateTraining",
+        "parameters": [
+          {
+            "name": "training-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "training",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Training"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Training"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/getQuizzesByCreatedDate/{createdAt}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByCreatedAt",
+        "parameters": [
+          {
+            "name": "createdAt",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/getQuizByName/{name}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizByName",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quiz"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/getQuiz/{id}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quiz"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/getAllQuizzes": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getAllQuizzes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/by-updated-at/{updatedAt}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByUpdatedAt",
+        "parameters": [
+          {
+            "name": "updatedAt",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/by-updated-at-query/{updatedAt}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByUpdatedAtQuery",
+        "parameters": [
+          {
+            "name": "updatedAt",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/by-updated-at-between/{start}/{end}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByUpdatedAtBetween",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/by-updated-at-between-query/{start}/{end}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByUpdatedAtBetweenQuery",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/by-created-at-query/{createdAt}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByCreatedAtQuery",
+        "parameters": [
+          {
+            "name": "createdAt",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/by-created-at-between/{start}/{end}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByCreatedAtBetween",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/by-created-at-between-query/{start}/{end}": {
+      "get": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "getQuizzesByCreatedAtBetweenQuery",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quiz"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/activate-account": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "confirm",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Trainings/{training-id}": {
+      "get": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "findTrainingById",
+        "parameters": [
+          {
+            "name": "training-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrainingResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Trainings/findAllTrainingsByTrainee": {
+      "get": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "findAllTrainingsByTrainee",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseTrainingResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Trainings/findAllDisplayableTrainings": {
+      "get": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "findAllDisplayableTrainings",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseTrainingResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Question/getAllQuestions": {
+      "get": {
+        "tags": [
+          "question"
+        ],
+        "operationId": "getAllQuestions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Question"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Question/findQuestionById": {
+      "get": {
+        "tags": [
+          "question"
+        ],
+        "operationId": "findQuestion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Feedbacks/training/{training-id}": {
+      "get": {
+        "tags": [
+          "feedback"
+        ],
+        "operationId": "findAllFeedbacksByTraininig",
+        "parameters": [
+          {
+            "name": "training-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResponseFeedbackResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quiz/deleteQuiz/{id}": {
+      "delete": {
+        "tags": [
+          "quiz"
+        ],
+        "summary": "Delete a quiz",
+        "description": "Deletes a quiz by ID",
+        "operationId": "deleteQuiz",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quiz deleted successfully"
+          },
+          "404": {
+            "description": "Quiz not found: {error message}"
+          }
+        }
+      }
+    },
+    "/quiz/deleteQuestion/{idQuiz}": {
+      "delete": {
+        "tags": [
+          "quiz"
+        ],
+        "operationId": "deleteQuestionFromQuiz",
+        "parameters": [
+          {
+            "name": "idQuiz",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "Question": {
+        "required": [
+          "correctAnswer",
+          "questionText",
+          "traineeAnswer"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "questionText": {
+            "type": "string"
+          },
+          "correctAnswer": {
+            "type": "string"
+          },
+          "traineeAnswer": {
+            "type": "string"
+          },
+          "isAnswerCorrect": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Quiz": {
+        "required": [
+          "description",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Question"
+            }
+          },
+          "score": {
+            "maximum": 20,
+            "exclusiveMaximum": false,
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "float"
+          },
+          "isQuizValidated": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RegistrationRequest": {
+        "required": [
+          "email",
+          "firstname",
+          "lastname",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "firstname": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 2147483647,
+            "minLength": 8,
+            "type": "string"
+          }
+        }
+      },
+      "AuthenticationRequest": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 2147483647,
+            "minLength": 8,
+            "type": "string"
+          }
+        }
+      },
+      "AuthenticationResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "TrainingRequest": {
+        "required": [
+          "description",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "trainingNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trainingStatus": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "UNAVAILABLE",
+              "CANCELLED",
+              "FORTHCOMING"
+            ]
+          }
+        }
+      },
+      "FeedbackRequest": {
+        "required": [
+          "comment",
+          "trainingId"
+        ],
+        "type": "object",
+        "properties": {
+          "note": {
+            "maximum": 5,
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "trainingId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "TrainingResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "trainingNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trainingStatus": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "UNAVAILABLE",
+              "CANCELLED",
+              "FORTHCOMING"
+            ]
+          },
+          "trainingCover": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "byte"
+            }
+          }
+        }
+      },
+      "Certification": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "issueDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "evaluation": {
+            "$ref": "#/components/schemas/Evaluation"
+          },
+          "trainee": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "Evaluation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "passingScore": {
+            "type": "number",
+            "format": "float"
+          },
+          "maxScore": {
+            "type": "number",
+            "format": "float"
+          },
+          "evaluationScore": {
+            "type": "number",
+            "format": "float"
+          },
+          "isEvaluationValidated": {
+            "type": "boolean"
+          },
+          "trainingLevel": {
+            "$ref": "#/components/schemas/TrainingLevel"
+          },
+          "certification": {
+            "$ref": "#/components/schemas/Certification"
+          }
+        }
+      },
+      "Feedback": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "modifiedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "note": {
+            "type": "number",
+            "format": "double"
+          },
+          "training": {
+            "$ref": "#/components/schemas/Training"
+          }
+        }
+      },
+      "GrantedAuthority": {
+        "type": "object",
+        "properties": {
+          "authority": {
+            "type": "string"
+          }
+        }
+      },
+      "Skill": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "skillLevel": {
+            "type": "string",
+            "enum": [
+              "Newbie_1",
+              "Beginner_2",
+              "Talented_3",
+              "Skilled_4",
+              "Intermediate_5",
+              "Skillful_6",
+              "Seasoned_7",
+              "Proficient_8",
+              "Advanced_9",
+              "Expert_10"
+            ]
+          },
+          "skillType": {
+            "type": "string",
+            "enum": [
+              "HARD_SKILLS",
+              "SOFT_SKILLS",
+              "Personal_Skills",
+              "BUSINESS_SKILLS",
+              "LEADERSHIP_SkillS",
+              "DIGITAL_SKILLS",
+              "SOCIAL_SKILLS"
+            ]
+          },
+          "training": {
+            "$ref": "#/components/schemas/Training"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Training": {
+        "required": [
+          "category",
+          "description",
+          "location",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "modifiedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "trainingNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trainingCover": {
+            "type": "string"
+          },
+          "trainingStatus": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "UNAVAILABLE",
+              "CANCELLED",
+              "FORTHCOMING"
+            ]
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Skill"
+            }
+          },
+          "feedbacks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feedback"
+            }
+          },
+          "trainees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "trainer": {
+            "$ref": "#/components/schemas/User"
+          },
+          "trainingLevels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TrainingLevel"
+            }
+          }
+        }
+      },
+      "TrainingContent": {
+        "required": [
+          "contentUrl",
+          "description",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contentUrl": {
+            "type": "string"
+          },
+          "trainingLevel": {
+            "$ref": "#/components/schemas/TrainingLevel"
+          }
+        }
+      },
+      "TrainingLevel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "trainingDifficulty": {
+            "type": "string",
+            "enum": [
+              "STORY_MODE",
+              "EASY_MODE",
+              "MEDIUM_MODE",
+              "HARD_MODE",
+              "NIGHTMARE_MODE"
+            ]
+          },
+          "levelStatus": {
+            "type": "string",
+            "enum": [
+              "AUTHORIZED",
+              "UNAUTHORIZED"
+            ]
+          },
+          "training": {
+            "$ref": "#/components/schemas/Training"
+          },
+          "trainingContents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TrainingContent"
+            }
+          },
+          "quizzes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Quiz"
+            }
+          },
+          "trainingSessions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TrainingSession"
+            }
+          }
+        }
+      },
+      "TrainingSession": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "trainees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "trainer": {
+            "$ref": "#/components/schemas/User"
+          },
+          "trainingLevel": {
+            "$ref": "#/components/schemas/TrainingLevel"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstname": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "accountLocked": {
+            "type": "boolean"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "trainingSessionsTrained": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TrainingSession"
+            }
+          },
+          "trainingSessions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TrainingSession"
+            }
+          },
+          "certifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Certification"
+            }
+          },
+          "trainings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Training"
+            }
+          },
+          "training": {
+            "$ref": "#/components/schemas/Training"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastModifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "authorities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrantedAuthority"
+            }
+          },
+          "username": {
+            "type": "string"
+          },
+          "credentialsNonExpired": {
+            "type": "boolean"
+          },
+          "accountNonExpired": {
+            "type": "boolean"
+          },
+          "accountNonLocked": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PageResponseTrainingResponse": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TrainingResponse"
+            }
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          }
+        }
+      },
+      "FeedbackResponse": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "number",
+            "format": "double"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "ownFeedback": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PageResponseFeedbackResponse": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeedbackResponse"
+            }
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Auth description",
+        "in": "header",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
   }
+}

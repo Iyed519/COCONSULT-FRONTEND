@@ -6,7 +6,12 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { FinanceAndAccountingProcessRestControllerService } from './services/finance-and-accounting-process-rest-controller.service';
+import { QuizService } from './services/quiz.service';
+import { AuthenticationService } from './services/authentication.service';
+import { TrainingService } from './services/training.service';
+import { QuestionService } from './services/question.service';
+import { ApiService } from './services/api.service';
+import { FeedbackService } from './services/feedback.service';
 
 /**
  * Module that provides all services and configuration.
@@ -16,7 +21,12 @@ import { FinanceAndAccountingProcessRestControllerService } from './services/fin
   exports: [],
   declarations: [],
   providers: [
-    FinanceAndAccountingProcessRestControllerService,
+    QuizService,
+    AuthenticationService,
+    TrainingService,
+    QuestionService,
+    ApiService,
+    FeedbackService,
     ApiConfiguration
   ],
 })

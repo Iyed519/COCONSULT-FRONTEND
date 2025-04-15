@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 // import { CalendarOptions } from '@fullcalendar/core/internal';
 
 
@@ -26,13 +25,14 @@ import { FooterFrontComponent } from './components/frontoffice/footer-front/foot
 import { FooterBackComponent } from './components/backoffice/footer-back/footer-back.component';
 import { HeaderBackComponent } from './components/backoffice/header-back/header-back.component';
 import { AllTemplateBackComponent } from './components/backoffice/all-template-back/all-template-back.component';
-import { SigninComponent } from './components/frontoffice/signin/signin.component';
+
 import { HorizontalComponent } from './components/backoffice/sidebarstyle/horizontal/horizontal.component';
-import { AdminComponent } from './components/backoffice/admin/admin.component';
-import { LiabilityListComponent } from './components/backoffice/Liability/liability-list/liability-list.component';
-import { LiabilityFormComponent } from './components/backoffice/Liability/liability-form/liability-form.component';
 import { NavbarBackComponent } from './components/backoffice/navbar-back/navbar-back.component';
 import { HomeComponent } from './components/backoffice/home/home.component';
+import { LoginComponent} from "./components/frontoffice/login/login.component";
+import { RegisterComponent } from './components/frontoffice/register/register.component';
+import { ActivateAccountComponent } from './components/frontoffice/activate-account/activate-account.component';
+import {CodeInputModule} from "angular-code-input";
 
 
 @NgModule({
@@ -44,16 +44,15 @@ import { HomeComponent } from './components/backoffice/home/home.component';
     FooterBackComponent,
     HeaderBackComponent,
     AllTemplateBackComponent,
-    SigninComponent,
     HorizontalComponent,
-    AdminComponent,
-    LiabilityListComponent,
-    LiabilityFormComponent,
     NavbarBackComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    ActivateAccountComponent
   ],
   imports: [
-    RouterModule.forRoot([]), 
+    RouterModule.forRoot([]),
     BrowserModule,
     AppRoutingModule,
     FullCalendarModule,
@@ -61,7 +60,7 @@ import { HomeComponent } from './components/backoffice/home/home.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-center',
       closeButton: true,
@@ -72,6 +71,7 @@ import { HomeComponent } from './components/backoffice/home/home.component';
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
+    CodeInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
