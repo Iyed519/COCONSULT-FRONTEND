@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {path: 'activate-account', component: ActivateAccountComponent },
+  {path: 'trainings', loadChildren:() => import('./modules/training/training.module').then(m => m.TrainingModule)},
 ];
 
 @NgModule({
