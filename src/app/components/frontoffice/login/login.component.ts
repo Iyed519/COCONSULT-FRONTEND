@@ -29,7 +29,7 @@ export class LoginComponent {
     }).subscribe({
       next: (res)  => {
         this.tokenService.token = res.token as string;
-        this.router.navigate(['trainings']);
+        this.router.navigate(['/dash']);
       },
       error: (err)  => {
         console.log(err);

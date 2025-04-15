@@ -1,0 +1,102 @@
+/*!* account-activation.component.css *!*/
+
+/*.container {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  height: 100vh;*/
+/*}*/
+
+/*.activation-message, .activation-error {*/
+/*  text-align: center;*/
+/*}*/
+
+/*.activation-error {*/
+/*  color: red;*/
+/*}*/
+/* account-activation.component.css */
+
+/* Style the entire activation page with a background image */
+/* account-activation.component.css */
+
+/* Style the entire activation page with a background image */
+/* account-activation.component.css */
+
+/* Style the entire activation page with a background image */
+.activation-page {
+  min-height: 100vh; /* Full viewport height */
+  background-image: url('/assets/frontoffice/assets/img/bg-masthead.jpg'); /* Path relative to src/assets */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeating */
+  margin: 0; /* Remove default margin */
+}
+
+/* Center the container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Style the card */
+.activation-card {
+  width: 100%;
+  max-width: 400px; /* Fixed width for the card */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for readability */
+}
+
+/* Style the activation message and error */
+.activation-message, .activation-error {
+  text-align: center;
+}
+
+.activation-error {
+  color: red;
+}
+
+/* Style the container for the code input */
+.code-input-container {
+  width: 100%; /* Ensure it takes the full width of the card */
+  max-width: 300px; /* Match the screenshot's narrower width */
+  margin: 0 auto; /* Center the content */
+}
+
+/* Style the code-input component */
+code-input {
+  display: flex; /* Ensure the inputs are in a row */
+  justify-content: center; /* Center the inputs */
+  margin: 20px 0; /* Add spacing above and below */
+}
+
+/* Style the individual input squares */
+code-input input {
+  width: 40px; /* Width of each square */
+  height: 40px; /* Height of each square */
+  margin: 0 5px; /* Spacing between squares */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center; /* Center the numbers */
+  font-size: 16px; /* Font size for readability */
+}
+
+/* Style the Go to Login button */
+.btn-primary {
+  padding: 10px 20px; /* Padding for better appearance */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #ffffff; /* White text */
+  border: none; /* Remove default border */
+  font-size: 16px; /* Font size for readability */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for the button */
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

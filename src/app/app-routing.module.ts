@@ -11,13 +11,16 @@ const routes: Routes = [
    { path: '',
     component:AllTemplateBackComponent,
     children:[
-      { path:'aziz', component:HomeComponent }
+      { path:'aziz', component:HomeComponent },
+        { path: 'dash' , component: AllTemplateBackComponent  },
+
     ]  },
     {path: 'dash' , component: AllTemplateBackComponent  },
+    {path: 'home' ,component: AllTemplateFrontComponent },
     {path: 'login' , component: LoginComponent },
     {path: 'register' , component: RegisterComponent },
     {path: 'activate-account' , component: ActivateAccountComponent },
-    {path: 'horizontal' , component: AllTemplateBackComponent  }
+    {path: 'horizontal' , component: AllTemplateBackComponent }
 ];
 
 @NgModule({

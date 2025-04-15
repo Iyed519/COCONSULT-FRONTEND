@@ -1,0 +1,85 @@
+/* Style the entire login page with a background image */
+.login-page {
+    min-height: 100vh; /* Full viewport height */
+    background-image: url('/assets/frontoffice/assets/img/bg-masthead.jpg'); /* Path relative to src/assets */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Keep flex for centering the card */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Style the login card */
+.login-card {
+    width: 100%;
+    max-width: 400px; /* Fixed width for the card */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for readability */
+}
+
+/* Style form inputs */
+.form-control {
+    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #ced4da; /* Bootstrap default border color */
+}
+
+/* Style the alert message */
+.alert-danger {
+    border-radius: 5px; /* Rounded corners for alert */
+}
+
+/* Style the Sign in button */
+.sign-in-btn {
+    display: inline-flex; /* Align icon and text */
+    align-items: center; /* Vertically center icon and text */
+    padding: 10px 20px; /* Padding for better appearance */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #ffffff; /* White text */
+    border: none; /* Remove default border */
+    font-size: 16px; /* Font size for readability */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for Sign in button */
+.sign-in-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Ensure the icon has proper spacing */
+.sign-in-btn .fas {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+/* Style the Register section */
+.register-section {
+    margin-top: 20px; /* Space between Sign in button and Register section */
+}
+
+/* Style the Register link */
+.btn-link {
+    padding: 0; /* Remove padding for inline appearance */
+    color: #007bff; /* Bootstrap primary color */
+    text-decoration: underline; /* Underline for link appearance */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    font-size: 16px; /* Match font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover effect for Register link */
+.btn-link:hover {
+    color: #0056b3; /* Darker shade on hover */
+    text-decoration: underline; /* Keep underline on hover */
+}
+
+/* Ensure the paragraph in Register section has no extra margin */
+.register-section p {
+    margin: 0; /* Remove default margin for inline text */
+    font-size: 16px; /* Match font size */
+}
