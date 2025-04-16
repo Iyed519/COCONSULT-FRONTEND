@@ -60,7 +60,6 @@ import {HttpTokenInterceptor} from "./services/interceptor/http-token.intercepto
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-center',
@@ -73,6 +72,7 @@ import {HttpTokenInterceptor} from "./services/interceptor/http-token.intercepto
     MatCardModule,
     MatIconModule,
     CodeInputModule,
+    HttpClientModule,
   ],
   providers: [
     HttpClient,
