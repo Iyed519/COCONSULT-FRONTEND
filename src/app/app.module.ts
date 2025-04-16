@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +33,7 @@ import { LoginComponent} from "./components/frontoffice/login/login.component";
 import { RegisterComponent } from './components/frontoffice/register/register.component';
 import { ActivateAccountComponent } from './components/frontoffice/activate-account/activate-account.component';
 import {CodeInputModule} from "angular-code-input";
+import {HttpTokenInterceptor} from "./services/interceptor/http-token.interceptor";
 
 
 @NgModule({
@@ -73,7 +74,14 @@ import {CodeInputModule} from "angular-code-input";
     MatIconModule,
     CodeInputModule,
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpTokenInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
