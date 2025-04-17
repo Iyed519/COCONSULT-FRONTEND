@@ -306,13 +306,17 @@ const resizePlugins = () => {
               LoaderInit
 -----------------------------------------------------------------------*/
 const loaderInit = () => {
-  const loader = document.querySelector('.loader')
-  setTimeout(() => {
-    loader.classList.add('animate__animated', 'animate__fadeOut')
+  const loader = document.querySelector('.loader');
+  if (loader) {
     setTimeout(() => {
-      loader.classList.add('d-none')
-    }, 500)
-  }, 500)
+      loader.classList.add('animate__animated', 'animate__fadeOut');
+      setTimeout(() => {
+        loader.classList.add('d-none');
+      }, 500);
+    }, 500);
+  } else {
+    console.warn('Loader element not found in the DOM.');
+  }
 }
 /*---------------------------------------------------------------------
               Sidebar Toggle

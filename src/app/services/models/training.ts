@@ -8,14 +8,14 @@ import { TrainingLevel } from '../models/training-level';
 import { User } from '../models/user';
 export interface Training {
   category: string;
-  createdAt?: string;
   createdBy?: number;
+  createdDate?: string;
   description: string;
   feedbacks?: Array<Feedback>;
   id?: number;
+  lastModifiedBy?: number;
+  lastModifiedDate?: string;
   location: string;
-  modifiedAt?: string;
-  modifiedBy?: number;
   name: string;
   skills?: Array<Skill>;
   trainees?: Array<User>;

@@ -37,33 +37,8 @@ export class TrainingService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `findAllTrainings()` */
-  static readonly FindAllTrainingsPath = '/Trainings';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `findAllTrainings()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  findAllTrainings$Response(params?: FindAllTrainings$Params, context?: HttpContext): Observable<StrictHttpResponse<PageResponseTrainingResponse>> {
-    return findAllTrainings(this.http, this.rootUrl, params, context);
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `findAllTrainings$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  findAllTrainings(params?: FindAllTrainings$Params, context?: HttpContext): Observable<PageResponseTrainingResponse> {
-    return this.findAllTrainings$Response(params, context).pipe(
-      map((r: StrictHttpResponse<PageResponseTrainingResponse>): PageResponseTrainingResponse => r.body)
-    );
-  }
-
   /** Path part for operation `saveTraining()` */
-  static readonly SaveTrainingPath = '/Trainings';
+  static readonly SaveTrainingPath = '/Trainings/saveTraining';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -167,7 +142,7 @@ export class TrainingService extends BaseService {
   }
 
   /** Path part for operation `findTrainingById()` */
-  static readonly FindTrainingByIdPath = '/Trainings/{training-id}';
+  static readonly FindTrainingByIdPath = '/Trainings/findTraining/{training-id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -188,6 +163,31 @@ export class TrainingService extends BaseService {
   findTrainingById(params: FindTrainingById$Params, context?: HttpContext): Observable<TrainingResponse> {
     return this.findTrainingById$Response(params, context).pipe(
       map((r: StrictHttpResponse<TrainingResponse>): TrainingResponse => r.body)
+    );
+  }
+
+  /** Path part for operation `findAllTrainings()` */
+  static readonly FindAllTrainingsPath = '/Trainings/findAllTrainings';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `findAllTrainings()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findAllTrainings$Response(params?: FindAllTrainings$Params, context?: HttpContext): Observable<StrictHttpResponse<PageResponseTrainingResponse>> {
+    return findAllTrainings(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `findAllTrainings$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findAllTrainings(params?: FindAllTrainings$Params, context?: HttpContext): Observable<PageResponseTrainingResponse> {
+    return this.findAllTrainings$Response(params, context).pipe(
+      map((r: StrictHttpResponse<PageResponseTrainingResponse>): PageResponseTrainingResponse => r.body)
     );
   }
 

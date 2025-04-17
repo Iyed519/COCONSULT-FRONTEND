@@ -10,7 +10,6 @@ import { QuizService } from './services/quiz.service';
 import { AuthenticationService } from './services/authentication.service';
 import { TrainingService } from './services/training.service';
 import { QuestionService } from './services/question.service';
-import { ApiService } from './services/api.service';
 import { FeedbackService } from './services/feedback.service';
 
 /**
@@ -25,7 +24,6 @@ import { FeedbackService } from './services/feedback.service';
     AuthenticationService,
     TrainingService,
     QuestionService,
-    ApiService,
     FeedbackService,
     ApiConfiguration
   ],

@@ -5,11 +5,11 @@
 import { Training } from '../models/training';
 export interface Feedback {
   comment?: string;
-  createdAt?: string;
   createdBy?: number;
+  createdDate?: string;
   id?: number;
-  modifiedAt?: string;
-  modifiedBy?: number;
+  lastModifiedBy?: number;
+  lastModifiedDate?: string;
   note?: number;
   training?: Training;
 }

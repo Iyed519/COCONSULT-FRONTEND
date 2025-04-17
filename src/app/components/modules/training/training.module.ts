@@ -5,7 +5,7 @@ import { TrainingRoutingModule } from './training-routing.module';
 import { MainComponent } from './pages/main/main.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { TrainingListComponent } from './pages/training-list/training-list.component';
-import { BookCardComponent } from './components/book-card/book-card.component';
+import { TrainingCardComponent } from './components/training-card/training-card.component';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     MainComponent,
     MenuComponent,
     TrainingListComponent,
-    BookCardComponent
+    TrainingCardComponent,
   ],
   imports: [
     CommonModule,

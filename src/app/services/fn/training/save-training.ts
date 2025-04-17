@@ -30,4 +30,4 @@ export function saveTraining(http: HttpClient, rootUrl: string, params: SaveTrai
   );
 }
 
-saveTraining.PATH = '/Trainings';
+saveTraining.PATH = '/Trainings/saveTraining';

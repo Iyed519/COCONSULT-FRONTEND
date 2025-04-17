@@ -6,5 +6,4 @@ export { QuizService } from './services/quiz.service';
 export { AuthenticationService } from './services/authentication.service';
 export { TrainingService } from './services/training.service';
 export { QuestionService } from './services/question.service';
-export { ApiService } from './services/api.service';
 export { FeedbackService } from './services/feedback.service';

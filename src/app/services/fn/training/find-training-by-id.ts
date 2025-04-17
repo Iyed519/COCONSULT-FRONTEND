@@ -30,4 +30,4 @@ export function findTrainingById(http: HttpClient, rootUrl: string, params: Find
   );
 }
 
-findTrainingById.PATH = '/Trainings/{training-id}';
+findTrainingById.PATH = '/Trainings/findTraining/{training-id}';

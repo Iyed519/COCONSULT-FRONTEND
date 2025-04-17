@@ -19,10 +19,10 @@ export class TrainingListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findAllBooks();
+    this.findAllTrainings();
   }
 
-  private findAllBooks() {
+  private findAllTrainings() {
     this.trainingService.findAllTrainings({
       page: this.page,
       size: this.size

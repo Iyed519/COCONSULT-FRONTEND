@@ -32,4 +32,4 @@ export function findAllTrainings(http: HttpClient, rootUrl: string, params?: Fin
   );
 }
 
-findAllTrainings.PATH = '/Trainings';
+findAllTrainings.PATH = '/Trainings/findAllTrainings';

@@ -1,21 +1,22 @@
 import {Component, Input} from '@angular/core';
 import {TrainingResponse} from "../../../../../services/models/training-response";
-
 @Component({
-  selector: 'app-book-card',
-  templateUrl: './book-card.component.html',
-  styleUrls: ['./book-card.component.css']
+  selector: 'app-training-card',
+  templateUrl: './training-card.component.html',
+  styleUrls: ['./training-card.component.css']
 })
-export class BookCardComponent {
+export class TrainingCardComponent {
+
   private _training: TrainingResponse = {};
   private _trainingCover: string | undefined;
 
   get trainingCover(): string | undefined {
     if (this._training.trainingCover) {
-      return this._trainingCover;
+      return 'data:image/jpg;base64,' + this._training.trainingCover;
     }
-    return this._trainingCover;
+    return 'https://source.unsplash.com/user/c_v_r/1900x800';
   }
+
 
   get training(): TrainingResponse {
     return this._training;
@@ -25,5 +26,6 @@ export class BookCardComponent {
   set training(value: TrainingResponse) {
     this._training = value;
   }
+
 
 }
