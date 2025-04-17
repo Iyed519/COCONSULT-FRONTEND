@@ -10,7 +10,7 @@ import {PageResponseTrainingResponse} from "../../../../../services/models/page-
 })
 export class TrainingListComponent implements OnInit {
   trainingResponse: PageResponseTrainingResponse = {};
-  page: number = 1 ;
+  page: number = 0 ;
   size: number = 5;
   constructor(
     private trainingService: TrainingService,

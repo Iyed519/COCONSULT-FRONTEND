@@ -14,7 +14,7 @@ export class TrainingCardComponent {
     if (this._training.trainingCover) {
       return 'data:image/jpg;base64,' + this._training.trainingCover;
     }
-    return 'https://source.unsplash.com/user/c_v_r/1900x800';
+    return 'https://picsum.photos/200/300';
   }
 
 
