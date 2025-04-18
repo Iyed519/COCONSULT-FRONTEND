@@ -1423,6 +1423,10 @@
               "FORTHCOMING"
             ]
           },
+          "rate": {
+            "type": "number",
+            "format": "double"
+          },
           "trainingCover": {
             "type": "array",
             "items": {
@@ -1661,6 +1665,10 @@
           "trainer": {
             "$ref": "#/components/schemas/User"
           },
+          "rate": {
+            "type": "number",
+            "format": "double"
+          },
           "trainingLevels": {
             "type": "array",
             "items": {
@@ -1861,14 +1869,14 @@
           "name": {
             "type": "string"
           },
+          "username": {
+            "type": "string"
+          },
           "authorities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrantedAuthority"
             }
-          },
-          "username": {
-            "type": "string"
           },
           "accountNonLocked": {
             "type": "boolean"

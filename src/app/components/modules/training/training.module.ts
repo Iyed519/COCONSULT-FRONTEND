@@ -6,6 +6,7 @@ import { MainComponent } from './pages/main/main.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { TrainingListComponent } from './pages/training-list/training-list.component';
 import { TrainingCardComponent } from './components/training-card/training-card.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     MenuComponent,
     TrainingListComponent,
     TrainingCardComponent,
+    RatingComponent,
   ],
   imports: [
     CommonModule,

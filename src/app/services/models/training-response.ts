@@ -8,6 +8,7 @@ export interface TrainingResponse {
   id?: number;
   location?: string;
   name?: string;
+  rate?: number;
   trainingCover?: Array<string>;
   trainingNumber?: number;
   trainingStatus?: 'AVAILABLE' | 'UNAVAILABLE' | 'CANCELLED' | 'FORTHCOMING';

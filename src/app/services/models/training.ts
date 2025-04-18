@@ -17,6 +17,7 @@ export interface Training {
   lastModifiedDate?: string;
   location: string;
   name: string;
+  rate?: number;
   skills?: Array<Skill>;
   trainees?: Array<User>;
   trainer?: User;

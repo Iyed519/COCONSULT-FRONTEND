@@ -14,9 +14,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-                      "jquery",
-                     "datatables.net"
-                      ], 
+              "jquery",
+              "datatables.net"
+            ],
             "outputPath": "dist/coconsult",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -43,7 +43,7 @@
               "node_modules/apexcharts/dist/apexcharts.min.js",
               "node_modules/swiper/swiper-bundle.min.js",
               "node_modules/jquery/dist/jquery.min.js",
-               "node_modules/datatables.net/js/dataTables.min.js"
+              "node_modules/datatables.net/js/dataTables.min.js"
             ]
           },
           "configurations": {
