@@ -11,6 +11,8 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
+import { enrollToTraining } from '../fn/training/enroll-to-training';
+import { EnrollToTraining$Params } from '../fn/training/enroll-to-training';
 import { findAllDisplayableTrainings } from '../fn/training/find-all-displayable-trainings';
 import { FindAllDisplayableTrainings$Params } from '../fn/training/find-all-displayable-trainings';
 import { findAllTrainings } from '../fn/training/find-all-trainings';
@@ -24,6 +26,8 @@ import { saveTraining } from '../fn/training/save-training';
 import { SaveTraining$Params } from '../fn/training/save-training';
 import { Training } from '../models/training';
 import { TrainingResponse } from '../models/training-response';
+import { unEnrollFromTraining } from '../fn/training/un-enroll-from-training';
+import { UnEnrollFromTraining$Params } from '../fn/training/un-enroll-from-training';
 import { updateTraining } from '../fn/training/update-training';
 import { UpdateTraining$Params } from '../fn/training/update-training';
 import { updateTrainingStatus } from '../fn/training/update-training-status';
@@ -35,6 +39,31 @@ import { UploadTrainingCover$Params } from '../fn/training/upload-training-cover
 export class TrainingService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
+  }
+
+  /** Path part for operation `unEnrollFromTraining()` */
+  static readonly UnEnrollFromTrainingPath = '/Trainings/unEnrollFromTraining/{training-id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `unEnrollFromTraining()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  unEnrollFromTraining$Response(params: UnEnrollFromTraining$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
+    return unEnrollFromTraining(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `unEnrollFromTraining$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  unEnrollFromTraining(params: UnEnrollFromTraining$Params, context?: HttpContext): Observable<number> {
+    return this.unEnrollFromTraining$Response(params, context).pipe(
+      map((r: StrictHttpResponse<number>): number => r.body)
+    );
   }
 
   /** Path part for operation `saveTraining()` */
@@ -58,6 +87,31 @@ export class TrainingService extends BaseService {
    */
   saveTraining(params: SaveTraining$Params, context?: HttpContext): Observable<number> {
     return this.saveTraining$Response(params, context).pipe(
+      map((r: StrictHttpResponse<number>): number => r.body)
+    );
+  }
+
+  /** Path part for operation `enrollToTraining()` */
+  static readonly EnrollToTrainingPath = '/Trainings/enrollToTraining/{training-id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `enrollToTraining()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  enrollToTraining$Response(params: EnrollToTraining$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
+    return enrollToTraining(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `enrollToTraining$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  enrollToTraining(params: EnrollToTraining$Params, context?: HttpContext): Observable<number> {
+    return this.enrollToTraining$Response(params, context).pipe(
       map((r: StrictHttpResponse<number>): number => r.body)
     );
   }

@@ -3,13 +3,15 @@ import {TrainingService} from "../../../../../services/services/training.service
 import {Router} from "@angular/router";
 import {PageResponseTrainingResponse} from "../../../../../services/models/page-response-training-response";
 import {TrainingResponse} from "../../../../../services/models/training-response";
+import {TrainingCardComponent} from "../../components/training-card/training-card.component";
+
 
 @Component({
-  selector: 'app-training-list',
-  templateUrl: './training-list.component.html',
-  styleUrls: ['./training-list.component.css']
+  selector: 'app-my-trainings',
+  templateUrl: './my-trainings.component.html',
+  styleUrls: ['./my-trainings.component.css']
 })
-export class TrainingListComponent implements OnInit {
+export class MyTrainingsComponent implements OnInit {
   trainingResponse: PageResponseTrainingResponse = {};
   page: number = 0 ;
   size: number = 1  ;
@@ -26,7 +28,7 @@ export class TrainingListComponent implements OnInit {
   }
 
   private findAllTrainings() {
-    this.trainingService.findAllTrainings({
+    this.trainingService.findAllTrainingsByTrainee({
       page: this.page,
       size: this.size
     }).subscribe({
@@ -63,24 +65,29 @@ export class TrainingListComponent implements OnInit {
   get isLastPage(): boolean {
     return this.page == this.trainingResponse.totalPages as number -1;
   }
-
-
-  //     (enroll)="enrollToTraining($event)" fel front
-  // }
-  enrollToTraining(training: TrainingResponse) {
+  unEnrollFromTraining(training: TrainingResponse) {
     this.message = ''
-    this.trainingService.enrollToTraining({
+    this.trainingService.unEnrollFromTraining({
       'training-id': training.id as number
     }).subscribe({
       next: () => {
         this.level = 'success';
-        this.message = 'successfully enrolled to this Training';
-      },
+        this.message = 'successfully unenrolled from this Training';
+        this.findAllTrainings();
+        },
       error: (err) => {
         console.log(err);
         this.level = 'error';
         this.message = err.error.error;
       }
     });
+  }
+
+  addToWaitingList(training: TrainingResponse) {
+
+  }
+
+  ShareBook(training: TrainingResponse) {
+
   }
 }

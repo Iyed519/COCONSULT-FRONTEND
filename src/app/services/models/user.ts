@@ -24,9 +24,9 @@ export interface User {
   name?: string;
   password?: string;
   phoneNumber?: string;
-  training?: Training;
   trainingSessions?: Array<TrainingSession>;
   trainingSessionsTrained?: Array<TrainingSession>;
   trainings?: Array<Training>;
+  trainingsToTrain?: Array<Training>;
   username?: string;
 }

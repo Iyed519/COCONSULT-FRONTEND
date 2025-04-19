@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+
 import {TrainingResponse} from "../../../../../services/models/training-response";
 @Component({
   selector: 'app-training-card',
@@ -10,7 +11,19 @@ export class TrainingCardComponent {
   private _training: TrainingResponse = {};
   private _trainingCover: string | undefined;
   private _manage: Boolean = false;
+  private _inMyTrainings: Boolean = false;
   // ------------------------------------
+
+
+  @Input()
+  get inMyTrainings(): Boolean {
+    return this._inMyTrainings;
+  }
+
+  set inMyTrainings(value: Boolean) {
+    this._inMyTrainings = value;
+  }
+  @Input()
   get manage(): Boolean {
     return this._manage;
   }
@@ -40,6 +53,9 @@ export class TrainingCardComponent {
   @Output() private details: EventEmitter<TrainingResponse> = new EventEmitter<TrainingResponse>();
   @Output() private enroll: EventEmitter<TrainingResponse> = new EventEmitter<TrainingResponse>();
   @Output() private edit: EventEmitter<TrainingResponse> = new EventEmitter<TrainingResponse>();
+  @Output() private unEnroll: EventEmitter<TrainingResponse> = new EventEmitter<TrainingResponse>();
+
+
 
 
 
@@ -62,5 +78,8 @@ export class TrainingCardComponent {
 
   onEnroll() {
     this.enroll.emit(this._training);
+  }
+  onUnEnroll() {
+    this.unEnroll.emit(this._training);
   }
 }

@@ -205,6 +205,38 @@
         }
       }
     },
+    "/Trainings/unEnrollFromTraining/{training-id}": {
+      "post": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "unEnrollFromTraining",
+        "parameters": [
+          {
+            "name": "training-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Trainings/saveTraining": {
       "post": {
         "tags": [
@@ -221,6 +253,38 @@
           },
           "required": true
         },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Trainings/enrollToTraining/{training-id}": {
+      "post": {
+        "tags": [
+          "Training"
+        ],
+        "operationId": "enrollToTraining",
+        "parameters": [
+          {
+            "name": "training-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1665,15 +1729,15 @@
           "trainer": {
             "$ref": "#/components/schemas/User"
           },
+          "rate": {
+            "type": "number",
+            "format": "double"
+          },
           "trainingLevels": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TrainingLevel"
             }
-          },
-          "rate": {
-            "type": "number",
-            "format": "double"
           }
         }
       },
@@ -1855,8 +1919,11 @@
               "$ref": "#/components/schemas/Training"
             }
           },
-          "training": {
-            "$ref": "#/components/schemas/Training"
+          "trainingsToTrain": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Training"
+            }
           },
           "createdDate": {
             "type": "string",
@@ -1869,19 +1936,19 @@
           "name": {
             "type": "string"
           },
+          "username": {
+            "type": "string"
+          },
           "authorities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "username": {
-            "type": "string"
-          },
-          "credentialsNonExpired": {
+          "accountNonExpired": {
             "type": "boolean"
           },
-          "accountNonExpired": {
+          "credentialsNonExpired": {
             "type": "boolean"
           },
           "accountNonLocked": {

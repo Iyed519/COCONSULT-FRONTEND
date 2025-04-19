@@ -1,4 +1,4 @@
-<h3>Training List</h3>
+<h3>My Training List</h3>
 <div
   *ngIf="message" class="alert"
   [class.alert-success]="level === 'success'"
@@ -10,7 +10,10 @@
   <app-training-card
     *ngFor= "let training of trainingResponse.content"
     [training]="training"
-    (enroll)="enrollToTraining($event)"
+    [inMyTrainings]="true"
+    (unEnroll)="unEnrollFromTraining($event)"
+    (addToWaitingList)="addToWaitingList($event)"
+    (share)="ShareBook($event)"
   ></app-training-card>
 </div>
 
@@ -41,7 +44,7 @@
       </li>
 
       <li class="page-item"
-      *ngFor="let _ of [].constructor(this.trainingResponse.totalPages); let pageIndex = index">
+          *ngFor="let _ of [].constructor(this.trainingResponse.totalPages); let pageIndex = index">
         <a
           (click)="goToPage(pageIndex)"
           class="page-link"

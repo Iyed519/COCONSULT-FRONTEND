@@ -7,6 +7,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { TrainingListComponent } from './pages/training-list/training-list.component';
 import { TrainingCardComponent } from './components/training-card/training-card.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { MyTrainingsComponent } from './pages/my-trainings/my-trainings.component';
+import { ManageTrainingComponent } from './pages/manage-training/manage-training.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { RatingComponent } from './components/rating/rating.component';
     TrainingListComponent,
     TrainingCardComponent,
     RatingComponent,
+    MyTrainingsComponent,
+    ManageTrainingComponent,
   ],
   imports: [
     CommonModule,
