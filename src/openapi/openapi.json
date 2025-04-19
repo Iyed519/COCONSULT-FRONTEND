@@ -1665,15 +1665,15 @@
           "trainer": {
             "$ref": "#/components/schemas/User"
           },
-          "rate": {
-            "type": "number",
-            "format": "double"
-          },
           "trainingLevels": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TrainingLevel"
             }
+          },
+          "rate": {
+            "type": "number",
+            "format": "double"
           }
         }
       },
@@ -1869,22 +1869,22 @@
           "name": {
             "type": "string"
           },
-          "username": {
-            "type": "string"
-          },
           "authorities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "accountNonLocked": {
-            "type": "boolean"
+          "username": {
+            "type": "string"
           },
           "credentialsNonExpired": {
             "type": "boolean"
           },
           "accountNonExpired": {
+            "type": "boolean"
+          },
+          "accountNonLocked": {
             "type": "boolean"
           }
         }
